@@ -1,0 +1,42 @@
+<!-- HEADER -->
+<header class="header">
+    <article class="title__login ">
+        <h1>LOGIN</h1>
+    </article>
+    <article class="logo-header animate">
+        <img src="../../../assets/imgs/chocolate.png" alt="logo">
+   
+    </article>
+</header>
+ <!-- login container-->
+<section class="container__login">
+    <div class="message-error animate" *ngIf="isLogged==false">Usuario o contraseña incorrecto</div>
+
+    <!-- logo -->
+    <div class="container__logo animate">
+        <img src="../../../assets/imgs/chocolate.png" alt="logo">
+    </div>
+
+  
+    <!-- forms -->
+    <div class="center__login" >
+ 
+        <article class="forms__container">
+
+            <input [disabled]="!isFormEnabled" type="email" placeholder="Email" [(ngModel)]="user">
+            <input [disabled]="!isFormEnabled"  type="password" placeholder="Password" [(ngModel)]="password">
+
+        </article>
+
+        <article class="keep-session">
+            <input disabled  checked  type="checkbox" placeholder="Keep alive sesion"><strong>Mantener sesion abierta</strong>
+        </article>
+
+        <article class="buttons__container">
+
+            <button [disabled]="!isFormEnabled"  class="login"  (click)="getUser()">Sign in</button>
+            
+        </article>
+    </div>
+    <loading *ngIf="isLogged"></loading>
+</section>

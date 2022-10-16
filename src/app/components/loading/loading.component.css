@@ -1,0 +1,23 @@
+.container__spinning__loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}    
+.spinning__loading{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-left:3px solid rgb(38, 74, 192); 
+    animation: scaleOnScale .6s infinite linear;
+    margin-bottom: 20px;
+}
+
+
+@keyframes scaleOnScale {
+    from{
+        transform: rotate(-360deg);
+    }
+    to{
+        transform: rotate(0);
+    }
+}
