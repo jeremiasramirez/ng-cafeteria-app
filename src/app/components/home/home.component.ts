@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { AccountService } from "src/app/services/account.service";
 import { LoginService } from "src/app/services/login.service";
   
 import { SesionService } from "src/app/services/sesion.service";
@@ -12,38 +13,68 @@ import { SesionService } from "src/app/services/sesion.service";
     ] ,
     providers:[
         SesionService,
-        LoginService
+        LoginService,
+        AccountService
     ]
 })
 
 export class HomeComponent{
     public name:string = 'Home';
+    public username:string='Cargando..';
+    public userEmail:string='Cargando email..';
     public isMenuOpen:boolean=true;
     
 
     constructor(
+        public account:AccountService,
         public loginService:LoginService,
         public sesion:SesionService, public router:Router){ }
 
+
+
     ngOnInit(){
       this.sesion.verifiedSession('home');
+      this.getAccountByToken();
     }
     
-  
+    public getAccountByToken(){
+        
+        let token:any=localStorage.getItem("token")?.toString();
+        
+        this.account.getUserByToken(token)
+        .subscribe((user)=>{
+            if(user.response[0].nombre.length >0&&  user.response[0].email.length>0){
+                this.username= user.response[0].nombre;
+                this.userEmail= user.response[0].email;
+            }
+            else{
+                this.closeSesion();
+            }
+        })
+        
+        
+        
+
+
+
+    }
+
+
+    public routeToCustomers(){
+        this.sesion.routeTo('customers')
+    }
        
        
     public closeSesion(){
         let  oldtoken:any= localStorage.getItem("token")?.toString();
         let newtoken:any='0';
+        
         this.loginService.removeToken(newtoken).subscribe(()=>{
             this.sesion.closeSesion();
         })
-      
-        
-         
-
- 
-
+   
 }
+
+
 
 }

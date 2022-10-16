@@ -54,7 +54,7 @@ export class LoginComponent{
                         
                         localStorage.setItem("token",newToken.toString())
                          
-                       console.log(e)
+                   
                        setTimeout(() => {
                         this.route.navigate(['/home'])
                    }, 2000);
