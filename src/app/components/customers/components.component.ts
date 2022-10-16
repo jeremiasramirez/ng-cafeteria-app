@@ -5,7 +5,9 @@ import { SesionService } from 'src/app/services/sesion.service';
 @Component({
   selector: 'customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.css'],
+  styleUrls: [
+    './customers.component.css' 
+],
   providers:[
     SesionService,
     LoginService
