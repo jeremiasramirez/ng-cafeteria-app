@@ -15,7 +15,7 @@ export class LoginService {
       return ajax.post(`https://localhost:7279/login/setsessionkey?email=${email}&password=${pass}&token=${token}`);
    }
 
-   public removeToken(newtoken:string){
+   public removeToken(newtoken:string ){
       return ajax.post(`https://localhost:7279/login/removesessionkey?newtoken=${newtoken}`);
    }
 

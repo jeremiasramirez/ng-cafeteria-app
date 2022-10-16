@@ -1,8 +1,8 @@
 <!-- menu -->
 <section class="container-menu-home">
 
-    <div class=" logo-menu animate">
-        <img src="../../../assets/imgs/chocolate.png" alt="logo">
+    <div class=" logo-menu  animate">
+        <img src="../../../assets/imgs/chocolate.png" class="animate" alt="logo">
     </div>
 
 
@@ -16,14 +16,14 @@
      </article>
 
 
-    <article class="title-menu-home">
+    <article class="title-menu-home animate-fade-down">
         <h1>Gestión de cafeteria</h1>
     </article>
 
    
 </section>
  
-
+<div class="message-error animate-fade-down" [hidden]="!isAdmin">Usted no tiene suficiente privilegios</div>
 <div class="container__menu"   >
 
         
@@ -36,7 +36,7 @@
             <p class="menu-animation-in">Clientes</p>
         </article>
 
-        <article class="menu__item  ">
+        <article class="menu__item" (click)="routeToUsers()">
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg" alt="logo">
             </div>

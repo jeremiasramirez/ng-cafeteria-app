@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomersComponent } from './components/customers/components.component';
+import { UsersComponent } from './components/users/users.component';
  
  
  
@@ -20,7 +21,7 @@ import { CustomersComponent } from './components/customers/components.component'
      LoadingComponent,
     LoginComponent,
     StartComponent, 
-    CustomersComponent
+    CustomersComponent, UsersComponent
   ],
   imports: [
     BrowserModule,

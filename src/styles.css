@@ -30,6 +30,8 @@ html,body{
   padding:0;
 }
 .message-error{
+  margin-top: 4px;
+   margin:4px;
   text-align: center;
   border-radius: 4px;
   padding:5px;
@@ -73,6 +75,21 @@ html,body{
   from{
      
       transform: translateY(8px);
+  }
+  to{
+  
+      transform: translateY(0);
+  }
+}
+
+.animate-fade-down{
+  animation: animsdown .2s linear;
+  transition: 1s;
+}
+@keyframes animsdown {
+  from{
+     
+      transform: translateY(-8px);
   }
   to{
   

@@ -45,14 +45,19 @@ export class SesionService {
         this.router.navigate([`/${route}`])
    }
    public closeSesion(){
-    let tokenRegistered:any=localStorage.getItem("token")?.toString();
+     
+
+    let oldtoken:any = localStorage.getItem("token")?.toString();
+
+   
+        this.loginService.removeToken('0').subscribe((e)=>{
+            console.log(e);
             
-    this.loginService.removeToken('0').subscribe(()=>{
-        localStorage.removeItem("token");
-        this.router.navigate(['/login']);
-        
-    })
-        
+            localStorage.removeItem("token");
+            this.router.navigate(['/login']);
+            
+        })
+    
 
     }
 

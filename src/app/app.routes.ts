@@ -6,6 +6,7 @@ import { HomeComponent } from "./components/home/home.component";
 
 import { LoginComponent } from "./components/login/login.component";
 import { StartComponent } from "./components/start/start.component";
+import { UsersComponent } from "./components/users/users.component";
  
 
 const ROUTEAPP :Routes=[
@@ -20,6 +21,10 @@ const ROUTEAPP :Routes=[
     {
         path: 'customers',
         component: CustomersComponent
+    },
+    {
+        path: 'users',
+        component: UsersComponent
     }
 ]
 export var ROUTES = RM.forRoot(ROUTEAPP);
