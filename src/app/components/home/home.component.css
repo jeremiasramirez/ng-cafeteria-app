@@ -50,7 +50,7 @@ h1{
 .user div{
     width:60px;
     height:60px;
-    margin-top: 20px;
+    margin-top: 25px;
     
     display: flex;
     position: inherit;
@@ -73,7 +73,7 @@ h1{
 
 .user h1{
     text-align: center;
-    padding-top: 90px;
+    padding-top: 100px;
     padding-left: 55px;
     color: white;
     /* margin:0; */
@@ -198,4 +198,8 @@ h1{
 
 .disabled_item_menu{
     background-color: rgba(90, 108, 193, 0.509);
+}
+
+.unique-width{
+    width:389px;
 }

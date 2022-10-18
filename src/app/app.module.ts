@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomersComponent } from './components/customers/components.component';
 import { UsersComponent } from './components/users/users.component';
+import { MenuFloatComponent } from './components/menu-float/menu-float.component';
+ 
  
  
  
@@ -21,7 +23,9 @@ import { UsersComponent } from './components/users/users.component';
      LoadingComponent,
     LoginComponent,
     StartComponent, 
-    CustomersComponent, UsersComponent
+    CustomersComponent, 
+    UsersComponent,
+    MenuFloatComponent 
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,7 @@ import { UsersComponent } from './components/users/users.component';
     CommonModule, 
     RouterModule
   ],
+   
   providers: [],
   bootstrap: [AppComponent]
 })
