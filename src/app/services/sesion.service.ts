@@ -12,7 +12,7 @@ export class SesionService {
    constructor(
     public loginService:LoginService,
     public router:Router){
-      console.log("sesion service running");
+       
    }
    
    
@@ -51,7 +51,7 @@ export class SesionService {
 
    
         this.loginService.removeToken('0').subscribe((e)=>{
-            console.log(e);
+        
             
             localStorage.removeItem("token");
             this.router.navigate(['/login']);

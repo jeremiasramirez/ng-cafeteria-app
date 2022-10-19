@@ -9,7 +9,7 @@
             <img class=""  src="../../../assets/imgs/icons/group_add_white_24dp.svg">
          </div>
 
-         <div class="item animate " (click)="to('users')">
+         <div class="item animate " (click)="to('users')" *ngIf="isAdmin==='Admin'">
             <img  class="" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg">
          </div>
 

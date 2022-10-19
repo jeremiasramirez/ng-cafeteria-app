@@ -14,3 +14,71 @@
 </section>
 <app-menu-float  
 ></app-menu-float>
+ 
+<!--<loading></loading> -->
+
+<section class="container__customers">
+   
+    <article class="container__add animate-fade-up">
+
+       
+        <div class="container__inputs">
+           
+            <h1 class="title">Nuevo cliente</h1>
+            <hr>
+            
+            <input type="text" placeholder="Nombre completo">
+        
+
+         
+            <input type="email" placeholder="Email">
+       
+            <input disabled type="text" placeholder="Fecha" [value]="dateStart">
+            <button class="btn-add" (click)="addCustomer()">Agregar</button>
+           
+        </div>
+    
+    </article>
+
+    
+
+    <article class="container__list__customers ">
+
+          <div class="search__customers">
+            <input type="search" placeholder="Search">
+         </div>  
+
+         <div class="container-customers">
+            <table class="table-customers">
+                <tr class="column-customers" *ngIf="!isCharginData">
+                    <th class="id">ID</th>
+                    <th class="name">NOMBRE</th>
+                    <th class="email">EMAIL</th>
+                    <th class="datefrom">REGISTRADO DESDE</th>
+                </tr>
+
+                
+                <tr class="row-customer animate-fade-up" *ngFor="let customer of customers" (click)="getCustomerByClick(customer)">
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.date}}</td>
+                </tr>
+
+               
+            </table>
+            <loading *ngIf="isCharginData"></loading>
+         </div>
+    
+    </article>
+<style>
+   
+   .datefrom{
+        width: 200px;
+    }
+
+</style>
+
+</section>
+
+ 
