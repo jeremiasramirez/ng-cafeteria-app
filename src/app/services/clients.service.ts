@@ -21,6 +21,9 @@ export class ClientsService {
      return ajax.post(`https://localhost:7279/clientes/update?id=${id}&name=${name}&email=${email}&date=${date}`)
    }
    
+   public removeClient(id:number){
+     return ajax.post(`https://localhost:7279/clientes/delete?id=${id}`)
+   }
 
 
 }

@@ -50,6 +50,7 @@
 
           <div class="search__customers">
             <input type="search" placeholder="Search">
+           
          </div>  
        
          <div class="container-customers">
@@ -73,8 +74,15 @@
                 </tr>
 
                
+               
             </table>
           
+            <!-- <div class="management__data">
+                <button><img src="../../../assets/imgs/icons/arrow_back_ios_white_24dp.svg" alt=""></button>
+                <p>5</p> <p>of</p> <p>25</p>
+                <button><img src="../../../assets/imgs/icons/arrow_forward_ios_white_24dp.svg" alt=""></button>
+
+            </div> -->
             
          </div>
     
@@ -102,9 +110,15 @@
 
 
         <div class="container__buttons__edit">
-            <button class="edit__btn" (click)="updateCustomer()">Editar</button>
-            <button class="delete__btn">Eliminar</button>
-            <button class="cancel__btn" (click)="existContainerEdit=false">Salir</button>
+            <button class="edit__btn" (click)="updateCustomer()">Editar
+                <span> </span>
+                <img src="../../../assets/imgs/icons/edit_white_24dp.svg" alt="">
+            </button>
+            <button class="delete__btn" (click)="deleteCustomer()">Eliminar <span> </span>
+                <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="">
+           
+            </button>
+            <button class="cancel__btn" (click)="existContainerEdit=false">Atrás</button>
         </div>
           
 

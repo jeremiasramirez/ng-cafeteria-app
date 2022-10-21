@@ -101,6 +101,16 @@ export class CustomersComponent implements OnInit {
  
   }
 
+
+  public deleteCustomer(){
+    this.clientsService.removeClient(this.formEditId)
+    .subscribe((ok)=>{
+      this.getAllCustomer();
+      this.existContainerEdit=false;
+    })
+  }
+
+
   public updateCustomer(){
     this.clientsService.updateClient(this.formEditId,this.formEditName,this.formEditEmail,this.dateStart)
     .subscribe((e)=>{
