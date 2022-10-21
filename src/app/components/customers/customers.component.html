@@ -13,27 +13,31 @@
    
 </section>
 <app-menu-float  
+
 ></app-menu-float>
- 
+<div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+      
 <!--<loading></loading> -->
 
-<section class="container__customers">
+<section class="container__customers animate">
    
-    <article class="container__add animate-fade-up">
+    <article class="container__add ">
 
-       
-        <div class="container__inputs">
+         <div class="container__inputs">
            
             <h1 class="title">Nuevo cliente</h1>
             <hr>
             
-            <input type="text" placeholder="Nombre completo">
+            <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">
         
 
          
-            <input type="email" placeholder="Email">
+            <input type="email" placeholder="Email" [(ngModel)]="formEmail">
        
-            <input disabled type="text" placeholder="Fecha" [value]="dateStart">
+            <div class="container__date">
+                <img src="../../../assets/imgs/icons/date_range_black_24dp.svg" alt="">
+                <input disabled type="text" placeholder="Fecha" [value]="dateStart">
+            </div>
             <button class="btn-add" (click)="addCustomer()">Agregar</button>
            
         </div>
@@ -47,10 +51,11 @@
           <div class="search__customers">
             <input type="search" placeholder="Search">
          </div>  
-
+       
          <div class="container-customers">
-            <table class="table-customers">
-                <tr class="column-customers" *ngIf="!isCharginData">
+          
+            <table class="table-customers" *ngIf="customers.length>0">
+                <tr class="column-customers" > 
                     <th class="id">ID</th>
                     <th class="name">NOMBRE</th>
                     <th class="email">EMAIL</th>
@@ -58,19 +63,53 @@
                 </tr>
 
                 
-                <tr class="row-customer animate-fade-up" *ngFor="let customer of customers" (click)="getCustomerByClick(customer)">
+               
+               
+                <tr class="row-customer animate" *ngFor="let customer of customers" (click)="getCustomerByClick(customer)">
                     <td>{{ customer.id }}</td>
-                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.nombre }}</td>
                     <td>{{ customer.email }}</td>
-                    <td>{{ customer.date}}</td>
+                    <td>{{ customer.fechaRegistro}}</td>
                 </tr>
 
                
             </table>
-            <loading *ngIf="isCharginData"></loading>
+          
+            
          </div>
     
     </article>
+
+    <!-- edit customer -->
+    <article class="container__edit animate" *ngIf="existContainerEdit==true">
+
+        <div class="container__logo__edit">
+            <img src="../../../assets/imgs/icons/edit_white_24dp.svg" alt="">
+        </div>
+        
+        <div class="container__title__edit">
+            <h1>Editar</h1>
+        </div>
+
+
+
+        <div class="container__inputs__edit ">
+            <p>Nombre</p>
+            <input type="text" placeholder="Name" [(ngModel)]="formEditName">
+            <p>Email</p>
+            <input type="email" placeholder="Email" [(ngModel)]="formEditEmail">
+        </div>
+
+
+        <div class="container__buttons__edit">
+            <button class="edit__btn" (click)="updateCustomer()">Editar</button>
+            <button class="delete__btn">Eliminar</button>
+            <button class="cancel__btn" (click)="existContainerEdit=false">Salir</button>
+        </div>
+          
+
+    </article>
+
 <style>
    
    .datefrom{
