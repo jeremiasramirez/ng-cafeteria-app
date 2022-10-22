@@ -49,7 +49,7 @@
     <article class="container__list__customers ">
 
           <div class="search__customers">
-            <input type="search" placeholder="Search">
+            <input type="search" placeholder="Search"  #data (keyup)="searchCustomer(data.value)" >
            
          </div>  
        
@@ -66,7 +66,7 @@
                 
                
                
-                <tr class="row-customer animate" *ngFor="let customer of customers" (click)="getCustomerByClick(customer)">
+                <tr class="row-customer animate-fade-down" *ngFor="let customer of customers" (click)="getCustomerByClick(customer)">
                     <td>{{ customer.id }}</td>
                     <td>{{ customer.nombre }}</td>
                     <td>{{ customer.email }}</td>
@@ -118,7 +118,10 @@
                 <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="">
            
             </button>
-            <button class="cancel__btn" (click)="existContainerEdit=false">Atrás</button>
+            <button class="cancel__btn" (click)="existContainerEdit=false">
+                
+                <img src="../../../assets/imgs/icons/arrow_back_ios_white_24dp.svg" alt=""> Atrás
+            </button>
         </div>
           
 

@@ -105,3 +105,14 @@
     background-color: blue;
     
 }
+
+.container__circle__loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container__circle__loading img{
+    width:400px;
+    
+}
+ 

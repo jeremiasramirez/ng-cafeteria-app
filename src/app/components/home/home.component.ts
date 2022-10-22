@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
+import { timer } from "rxjs";
 import { AccountService } from "src/app/services/account.service";
 import { LoginService } from "src/app/services/login.service";
   
@@ -26,20 +27,27 @@ export class HomeComponent{
     public isMenuOpen:boolean=true;
     public typeUser:string='';
     public isAdmin:boolean=false;
-
+    
 
     constructor(
         public account:AccountService,
         public loginService:LoginService,
-        public sesion:SesionService, public router:Router){ }
+        public sesion:SesionService, public router:Router){
+             
+         }
 
 
 
     ngOnInit(){
       this.sesion.verifiedSession('home');
       this.getAccountByToken();
+      
     }
     
+
+    
+
+
     public getAccountByToken(){
         
         let token:any=localStorage.getItem("token")?.toString();
@@ -51,14 +59,14 @@ export class HomeComponent{
                  
                 this.username= user.response[0].nombre;
                 this.userEmail= user.response[0].email;
-                this.typeUser=user.response[0].tipoDeUsuario
+                this.typeUser=user.response[0].tipoDeUsuario;
+
             }
             else{
                 this.closeSesion();
             }
 
         }) 
-
     }
 
 
@@ -69,13 +77,13 @@ export class HomeComponent{
     public routeToUsers(){
         if(this.typeUser=="Admin"){
             this.sesion.routeTo('users')
-            
         }
         else{
             this.isAdmin=true
+
             setTimeout(()=>{
                 this.isAdmin=false
-            },3000)
+            },3000);
             
         }
         

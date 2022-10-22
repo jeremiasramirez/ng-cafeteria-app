@@ -8,18 +8,21 @@
    
     </article>
 </header>
+
+
  <!-- login container-->
 <section class="container__login">
-    <div class="message-error animate" *ngIf="isLogged==false">Usuario o contraseña incorrecto</div>
 
+
+    <div class="message-error animate" *ngIf="isLogged==false">Usuario o contraseña incorrecto</div>
     <!-- logo -->
     <div class="container__logo animate">
         <img src="../../../assets/imgs/chocolate.png" alt="logo">
     </div>
 
-  
+   
     <!-- forms -->
-    <div class="center__login" >
+    <div class="center__login" [hidden]="isLogged">
  
         <article class="forms__container">
 
@@ -38,5 +41,9 @@
             
         </article>
     </div>
-    <loading *ngIf="isLogged"></loading>
+ 
+    <div class="container__circle__loading animate"  *ngIf="isLogged">
+        <img src="../../../assets/imgs/loadingxx.gif" alt="">
+    </div>
+  
 </section>

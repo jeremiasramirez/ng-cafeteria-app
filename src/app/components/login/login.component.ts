@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router"; 
+import { timer } from "rxjs";
 import { LoginService } from "src/app/services/login.service";
 import { SesionService } from "src/app/services/sesion.service";
  
@@ -20,17 +21,28 @@ export class LoginComponent{
     public password:string = '';
     public isFormEnabled:boolean=true;
     public isLogged:any;
-
+    public isLoadingMenu:boolean =true;
       
     ngOnInit(){
         this.sesionService.verifiedSession('home');
+        this.openAndCloseCircleLoadingMenu();
      }
     constructor(
         public sesionService:SesionService,
         public route:Router, public loginService:LoginService){ }
 
        
+    
+        public openAndCloseCircleLoadingMenu(){
+            this.isLoadingMenu=true;
+    
+            timer(800).subscribe(()=>{
+                this.isLoadingMenu=false;
+            });
+    
+        }
 
+        
     public getUser(){
        this.verified();
     }

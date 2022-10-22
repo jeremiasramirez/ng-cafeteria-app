@@ -45,17 +45,12 @@ export class CustomersComponent implements OnInit {
 
 
     this.sessionServices.verifiedSession('customers');
-
-
-
     this.getAllCustomer();
-
  
 
   }
 
   public getAllCustomer(){
-    
     
     this.clientsService.getAllClients()
     .subscribe((customer)=>{
@@ -81,13 +76,22 @@ export class CustomersComponent implements OnInit {
     }
 
    
-
-
   }
 
   public resetForm(){
    this.formName=''
    this.formEmail=''
+  }
+
+  public searchCustomer(data:string){
+    let filtered=this.customers.filter((element)=>{
+      return element.nombre.toLowerCase().includes(data);
+    })
+
+    if(filtered.length==0 || data.length==0) this.getAllCustomer();
+    else this.customers=filtered;
+    
+    
   }
 
   public getCustomerByClick(customer:customerI){
