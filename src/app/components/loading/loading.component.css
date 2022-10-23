@@ -8,7 +8,7 @@
     height: 30px;
     border-radius: 50%;
     margin-top: 10px;
-    border-left:3px solid rgb(38, 74, 192); 
+    border-left:3px solid rgb(193, 199, 215); 
     animation: scaleOnScale .6s infinite linear;
     margin-bottom: 8px;
 }

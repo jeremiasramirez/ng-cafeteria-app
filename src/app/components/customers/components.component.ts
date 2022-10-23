@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';  
+import { timer } from 'rxjs';
 import { ClientsService } from 'src/app/services/clients.service';
 import { CustomersService } from 'src/app/services/customers.service';
 import { LoginService } from 'src/app/services/login.service';
@@ -25,13 +26,14 @@ export class CustomersComponent implements OnInit {
   public formEditEmail:string = '';
   public formEditId:number = 0;
 
-
+  public lenAllCustomers:number=0;
   public dateStart:any = new Date().toString().substring(0,16);
   public isFormValidated:any='';
   public existContainerEdit:boolean=false;
 
-
-
+  public startPage:number=0;
+  public nextPage:number=6;
+  public resultOfTableStart:number=1;
 
   constructor(
     public clientsService:ClientsService,
@@ -55,6 +57,7 @@ export class CustomersComponent implements OnInit {
     this.clientsService.getAllClients()
     .subscribe((customer)=>{
       this.customers=customer.response;  
+      this.lenAllCustomers=Math.ceil(this.customers.length / 6) ;
     });
 
   }
@@ -73,6 +76,9 @@ export class CustomersComponent implements OnInit {
 
     }else{
       this.isFormValidated='false';
+      timer(3000).subscribe(()=>{
+        this.isFormValidated='true';
+      })
     }
 
    
@@ -128,11 +134,35 @@ export class CustomersComponent implements OnInit {
 
 
   public addCustomer(){
-     
     this.setNewCustomer()
-    
   }
-  
+
+  public backSlidePage(){
+    
+    if(this.startPage>this.lenAllCustomers){
+      this.startPage-=6
+      this.resultOfTableStart-=1;
+      this.nextPage-=6
+    } 
+
+
+  }
+  public nextSliedPage(){
+
+
+    if(this.resultOfTableStart<this.lenAllCustomers){
+      this.startPage+=6
+      this.resultOfTableStart+=1;
+      this.nextPage+=6
+    }
+    else{
+      this.startPage=0
+      this.resultOfTableStart=1;
+      this.nextPage=6
+    }
+
+
+  }
 
 }
 

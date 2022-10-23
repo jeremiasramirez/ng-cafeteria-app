@@ -1,0 +1,126 @@
+.nav{
+    width: 100%;
+    position: sticky;
+    top:0;
+    height: 70px;
+    background-color: rgb(19, 19, 132);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    transition: .2s;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .title__start{
+    margin: 0;
+    font-weight: 500;
+    word-spacing: 2px;
+    font-size: 22px;
+    padding:0;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.container__continue{
+    position: absolute;
+    right: 0px;
+    height: 70px;
+    display: flex;
+    width: 190px;
+    transition: .2s;
+    justify-content: center;
+    align-items: center;
+ 
+    padding:0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.container__continue:hover{
+    opacity: .4;
+}
+.container__continue span{
+    margin-left: 20px;
+    color:white;
+    margin-right: 3px;
+    font-weight: 600;
+}
+.pagination__container{
+    width: 100%;
+    padding-top: 15px;
+    height: 540px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center; 
+    flex-wrap: wrap; 
+    
+}
+
+.container__images{
+    width: 660px;
+    margin: 0 20px; 
+}
+@media screen and (max-width: 1000px){
+    .container__images{
+        width: 400px;
+    
+    }
+}
+.container__images img{
+    width: 100%;
+    margin: 0 3px;
+    border-radius: 5px;
+}
+.container__button__back, .container__button__next  {
+    background-color: rgba(203, 207, 222, 0.671);
+    border-radius: 50%;
+     width: 60px;
+    margin: 0 10px;
+    height: 60px;
+    display: flex;
+    transition: .2s;
+    justify-content: center;
+    align-items: center;
+}
+.container__button__back:hover, .container__button__next:hover{
+    background-color: rgb(166, 152, 152);
+} 
+ .container__button__back img{
+
+     margin-left: 10px;
+}
+
+.container__button__next img{
+
+    margin-right: 5px;
+}
+.container__button__back img, .container__button__next img{
+    width: 50px;
+    cursor: pointer;
+}
+
+.container__points{
+    width: 100vw !important;
+   
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__points > div{
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    cursor: pointer;
+    transition: .2s;
+    margin-top: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(116, 86, 86);
+   
+}
+.container__points > div:hover{
+    background-color:rgb(116, 86, 86);
+}
+

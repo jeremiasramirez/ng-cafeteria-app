@@ -10,6 +10,10 @@ import { UsersComponent } from "./components/users/users.component";
  
 
 const ROUTEAPP :Routes=[
+     {
+        path: '',
+        component: StartComponent
+    },
     {
         path: 'login',
         component: LoginComponent

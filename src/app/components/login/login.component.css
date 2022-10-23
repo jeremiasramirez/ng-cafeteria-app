@@ -40,6 +40,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+   
  
     
     margin: 0 3px;
@@ -62,8 +63,10 @@
     margin:0;
 }
 .forms__container{
-    margin-top: 10px;
+    margin-top: 10px; background-color: rgb(243, 232, 232);
     display: flex;
+    border-radius: 5px;
+    padding: 0 10px;
     justify-content: center;
     flex-direction: column; 
     align-items: center;
@@ -76,6 +79,7 @@
     border: 2px solid rgb(230, 218, 218);
     text-align: center;
     padding:8px;
+    background-color: white;
     border-radius: 4px;
     outline: none;
 }
@@ -110,6 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -10px;
 }
 .container__circle__loading img{
     width:400px;

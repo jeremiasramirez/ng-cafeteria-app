@@ -19,11 +19,11 @@
       
 <!--<loading></loading> -->
 
-<section class="container__customers animate">
+<section class="container__customers  ">
    
     <article class="container__add ">
 
-         <div class="container__inputs">
+         <div class="container__inputs animate">
            
             <h1 class="title">Nuevo cliente</h1>
             <hr>
@@ -66,28 +66,27 @@
                 
                
                
-                <tr class="row-customer animate-fade-down" *ngFor="let customer of customers" (click)="getCustomerByClick(customer)">
+                <tr class="row-customer animate_down_fast" *ngFor="let customer of customers | slice:startPage:nextPage" (click)="getCustomerByClick(customer)">
                     <td>{{ customer.id }}</td>
                     <td>{{ customer.nombre }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.fechaRegistro}}</td>
                 </tr>
-
-               
-               
+ 
             </table>
           
-            <!-- <div class="management__data">
-                <button><img src="../../../assets/imgs/icons/arrow_back_ios_white_24dp.svg" alt=""></button>
-                <p>5</p> <p>of</p> <p>25</p>
-                <button><img src="../../../assets/imgs/icons/arrow_forward_ios_white_24dp.svg" alt=""></button>
-
-            </div> -->
+            
             
          </div>
-    
+     
     </article>
+    <div class="management__data animate_down_fast">
+        <button (click)="backSlidePage()"><img src="../../../assets/imgs/icons/arrow_back_ios_white_24dp.svg" alt=""></button>
+        <p> {{ resultOfTableStart }}</p> <p> of </p> <p> {{ lenAllCustomers }} </p>
+        <button (click)="nextSliedPage()"><img src="../../../assets/imgs/icons/arrow_forward_ios_white_24dp.svg" alt=""></button>
 
+    </div>  
+  
     <!-- edit customer -->
     <article class="container__edit animate" *ngIf="existContainerEdit==true">
 

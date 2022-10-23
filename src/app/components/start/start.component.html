@@ -1,1 +1,44 @@
-<p>start works!</p>
+ 
+ <header class="nav">
+    <h1 class="title__start animate-fade-up">Sistema gestión de cafeterias</h1>
+    <div class="container__continue animate" (click)="continue()">
+       <loading *ngIf="isLoading"></loading> <span *ngIf="!isLoading">Continuar</span><img *ngIf="!isLoading" src="../../../assets/imgs/icons/arrow_forward_ios_white_24dp.svg" alt="">
+    </div>
+ </header>
+ 
+ <section class="pagination__container">
+    <article class="container__button__back" (click)="backImage()">
+        <img src="../../../assets/imgs/icons/arrow_back_ios_white_24dp.svg" alt="">
+    </article>
+    <article class="container__images animate">
+        <img [src]="images[currentImage].name" alt="">
+    </article>
+
+    <article class="container__button__next" (click)="nextImage()">
+        <img src="../../../assets/imgs/icons/arrow_forward_ios_white_24dp.svg" alt="">
+    </article>
+    <article class="container__points">
+        <div></div>
+        <div></div>
+        <div></div>
+       
+    </article>
+ </section>
+ <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, quae aperiam officiis porro similique suscipit? Quod amet laudantium quam! Quos pariatur rerum illo corporis excepturi placeat quod minus culpa odio.
+ </p>
+ 
+ <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, quae aperiam officiis porro similique suscipit? Quod amet laudantium quam! Quos pariatur rerum illo corporis excepturi placeat quod minus culpa odio.
+ </p>
+ 
+
+ <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, quae aperiam officiis porro similique suscipit? Quod amet laudantium quam! Quos pariatur rerum illo corporis excepturi placeat quod minus culpa odio.
+ </p>
+ 
+
+ <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, quae aperiam officiis porro similique suscipit? Quod amet laudantium quam! Quos pariatur rerum illo corporis excepturi placeat quod minus culpa odio.
+ </p>
+ 

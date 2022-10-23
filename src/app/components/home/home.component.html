@@ -38,21 +38,13 @@
             <p class="menu-animation-in">Clientes</p>
         </article>
 
-        <article class="menu__item" (click)="routeToUsers()">
-            <div class="menu-animation-in">
-                <img class="animate" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg" alt="logo">
-            </div>
-            <p class="menu-animation-in">Gestion usuarios</p>
-        </article>
-
-
         <article class="menu__item  ">
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/menu.png" alt="logo">
             </div>
             <p class="menu-animation-in">Gestion de menu</p>
         </article>
-        
+
         <article class="menu__item menu-animation-in  ">
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/add_shopping_cart_white_24dp.svg" alt="logo">
@@ -60,19 +52,29 @@
             <p>Realizar ventas</p>
         </article>
 
-        <article class="menu__item menu-animation-in   unique-width">
+
+        <article class="menu__item" (click)="routeToUsers()">
+            <div class="menu-animation-in">
+                <img class="animate" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg" alt="logo">
+            </div>
+            <p class="menu-animation-in">Gestion empleados</p>
+        </article>
+
+        <article class="menu__item" (click)="routeToUsers()">
+            <div class="menu-animation-in">
+                <img class="animate" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg" alt="logo">
+            </div>
+            <p class="menu-animation-in">Gestion usuarios</p>
+        </article>
+ 
+        <article class="menu__item menu-animation-in   ">
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/fact_check_white_24dp.svg" alt="logo">
             </div>
             <p class="menu-animation-in">Historial de ventas</p>
         </article>
 
-        <!-- <article class="menu__item  ">
-            <div class="menu-animation-in ">
-                <img class="animate" src="../../../assets/imgs/icons/paid_white_24dp.svg" alt="logo">
-            </div>
-            <p class="menu-animation-in">Realizar ventas</p>
-        </article> -->
+       
         
         <article class="close-session">
             <button (click)="closeSesion()">Cerrar sesión</button>
@@ -82,6 +84,8 @@
     </section>
 </div>
 
+
+ 
 <!-- routes -->
 
  
