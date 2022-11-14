@@ -73,7 +73,7 @@ h1{
 }
 .container__add{
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.317);
+    background-color: rgba(0, 0, 0, 0.591);
     height: 100vh;
     position: absolute;
     margin-left: -7px;
@@ -114,7 +114,7 @@ h1{
     padding:0;
     color: #555;
     margin-left: -270px;
-    margin-top: 15px;
+    margin-top: 20px;
     font-size: 14px;
  }
 .container__inputs button{
@@ -124,7 +124,7 @@ h1{
     font-weight: 600;
     margin-top: 20px;
     border:none;
-    background-color: rgb(225, 225, 234);
+    background-color: rgb(216, 216, 216);
     color: rgb(44, 42, 42);
     border-radius: 5px;
     cursor: pointer;
@@ -292,7 +292,7 @@ h1{
  .container__edit{
     position: absolute;
     background-color: rgb(19, 19, 132);
-    height: 100%;
+    height: 90%;
     overflow: hidden;
     width: 400px;
     right: 0;
@@ -373,3 +373,4 @@ width: 50px;
     font-weight: 400 !important;
 }
 
+/* users style */

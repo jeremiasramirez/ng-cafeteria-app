@@ -14,21 +14,52 @@
 </section>
 <app-menu-float color="red"></app-menu-float>
 
-
-
-<div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+ 
+<section class="card__users">
+    <input type="search" class="search__user" placeholder="Search">
+    <article class="card__user">  </article>
+    <article class="card__user">  </article>
+    
+    <article class="card__user">  </article>
+    <article class="card__user">  </article>
+</section>
+ 
+<style>
+    .card__users{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
       
-<!--<loading></loading> -->
-
+    }
+  
+    .search__user{
+        width: 75%;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1.5px solid #eee;
+        padding: 10px 10px 10px 10px;
+    }
+    .card__user{
+        width: 310px;
+        margin: 10px;
+        height: 350px;
+        border-radius: 10px;
+        background-color: rgb(237, 224, 224)
+    }
+</style>
 <section class="container__customers" >
    
-    <article class="container__add" *ngIf="exist__window__edit">
-
+    <article class="container__add" *ngIf="exist__window__add">
+       
          <div class="container__inputs animate">
            
             <h1 class="title ">Nuevo usuario</h1>
-            <hr>
-
+            <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+    
+         
+           
             <p class="placeholder__user ">Nombre</p>
             <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">
         
@@ -37,79 +68,28 @@
             <input type="email" placeholder="Email" [(ngModel)]="formEmail">
             
             <p class="placeholder__user">Estado</p>
-            <select name="estado"   class="state">
+            <select name="estado"   class="state" [(ngModel)]="formState">
                 <option  value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>
             <p class="placeholder__user">Privilegios</p>
-            <select name="privilegios"   class="state">
+            <select name="privilegios"  [(ngModel)]="formUserType" class="state">
                 <option  value="Admin">Administrador</option>
                 <option value="Usuario">Usuario</option>
             </select>
             <p class="placeholder__user">Clave</p>
-            <input type="password" placeholder="Password">
+            <input type="password" [(ngModel)]="formPass" placeholder="Password">
        
-            <button class="btn-add">Agregar</button>
-            <button class="btn-cancel" (click)="exist__window__edit=false">Cancelar</button>
+            <button class="btn-add" (click)="postUser()">Agregar</button>
+            <button class="btn-cancel" (click)="exist__window__add=false">Cancelar</button>
            
         </div>
     
     </article>
 
     
-
-  
-    <!-- edit customer -->
  
-    <article class="container__edit animate" *ngIf="existContainerEdit==true">
-      
-
-        <div class="container__logo__edit">
-            <img src="../../../assets/imgs/icons/edit_white_24dp.svg" alt="">
-        </div>
-        
-        <div class="container__title__edit">
-            <h1>Editar</h1>
-        </div>
-
-
-        
-        <div class="container__inputs__edit ">
-            <p>ID</p>
-            <input type="number"  disabled  placeholder="ID" [(ngModel)]="formEditId">
-
-            <p>Nombre</p>
-            <input type="text" placeholder="Name" [(ngModel)]="formEditName">
-            <p>Email</p>
-            <input type="email" placeholder="Email" [(ngModel)]="formEditEmail">
-        </div>
-
-
-        <div class="container__buttons__edit">
-            <button class="edit__btn"  >Editar
-                <span> </span>
-                <img src="../../../assets/imgs/icons/edit_white_24dp.svg" alt="">
-            </button>
-            <button class="delete__btn ">Eliminar <span> </span>
-                <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="">
-           
-            </button>
-            <button class="cancel__btn"  >
-                
-                <img src="../../../assets/imgs/icons/close.svg" alt="">  
-            </button>
-        </div>
-  
-    </article>
  
-
-<style>
-   
-   .datefrom{
-        width: 200px;
-    }
-
-</style>
 
 </section>
 
