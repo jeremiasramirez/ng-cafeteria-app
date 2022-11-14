@@ -30,7 +30,7 @@ export class CustomersComponent implements OnInit {
   public dateStart:any = new Date().toString().substring(0,16);
   public isFormValidated:any='';
   public existContainerEdit:boolean=false;
-
+  public existWindowAddClient:boolean=false;
   public startPage:number=0;
   public nextPage:number=6;
   public resultOfTableStart:number=1;
@@ -72,6 +72,7 @@ export class CustomersComponent implements OnInit {
       .subscribe((posted)=>{
         this.getAllCustomer();
         this.resetForm()
+        this.existWindowAddClient=false
       });
 
     }else{
@@ -125,6 +126,7 @@ export class CustomersComponent implements OnInit {
     this.clientsService.updateClient(this.formEditId,this.formEditName,this.formEditEmail,this.dateStart)
     .subscribe((e)=>{
       this.getAllCustomer();
+      this.existContainerEdit=false
       
     })
   }

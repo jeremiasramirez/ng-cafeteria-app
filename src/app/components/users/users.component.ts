@@ -14,8 +14,24 @@ import { SesionService } from 'src/app/services/sesion.service';
   ]
 })
 export class UsersComponent implements OnInit {
+  public exist__window__edit:boolean=true;
+  public formName:string = '';
+  public formEmail:string = '';
+  public formEditName:string = '';
+  public formEditEmail:string = '';
+  public formEditId:number = 0;
 
-   
+  public lenAllCustomers:number=0;
+  public dateStart:any = new Date().toString().substring(0,16);
+  public isFormValidated:any='';
+  public existContainerEdit:boolean=false;
+
+  public startPage:number=0;
+  public nextPage:number=6;
+  public resultOfTableStart:number=1;
+
+
+  
   constructor(
     public account:AccountService,
     public loginService:LoginService,

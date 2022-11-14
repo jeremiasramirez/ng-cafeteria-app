@@ -12,22 +12,26 @@
 
    
 </section>
-<app-menu-float  
 
-></app-menu-float>
-<div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
-      
+<!-- menu floating -->
+<app-menu-float></app-menu-float>
+
+<div class="add__new__client__button" (click)="existWindowAddClient=true">
+    <img src="../../../assets/imgs/icons/add.svg" alt="add">
+</div>
+
+ 
 <!--<loading></loading> -->
-
 <section class="container__customers  ">
    
-    <article class="container__add ">
-
+    <article class="container__add" *ngIf="existWindowAddClient">
+       
+      
          <div class="container__inputs animate">
-           
+          
             <h1 class="title">Nuevo cliente</h1>
             <hr>
-            
+         
             <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">
         
 
@@ -39,10 +43,13 @@
                 <input disabled type="text" placeholder="Fecha" [value]="dateStart">
             </div>
             <button class="btn-add" (click)="addCustomer()">Agregar</button>
-           
+            <button class="btn-cancel" (click)="existWindowAddClient=false" >Cancelar</button>
+            <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+      
         </div>
-    
-    </article>
+     
+        </article>
+  
 
     
 
@@ -50,7 +57,7 @@
 
           <div class="search__customers">
             <input type="search" placeholder="Search"  #data (keyup)="searchCustomer(data.value)" >
-           
+             
          </div>  
        
          <div class="container-customers">
@@ -88,10 +95,12 @@
     </div>  
   
     <!-- edit customer -->
+    <article class="container__add"  *ngIf="existContainerEdit==true">
+       
     <article class="container__edit animate" *ngIf="existContainerEdit==true">
 
         <div class="container__logo__edit">
-            <img src="../../../assets/imgs/icons/edit_white_24dp.svg" alt="">
+            <!-- <img src="../../../assets/imgs/icons/edit_white_24dp.svg" alt=""> -->
         </div>
         
         <div class="container__title__edit">
@@ -101,6 +110,9 @@
 
 
         <div class="container__inputs__edit ">
+            <p>ID</p>
+            <input type="number"  disabled  placeholder="ID" [(ngModel)]="formEditId">
+
             <p>Nombre</p>
             <input type="text" placeholder="Name" [(ngModel)]="formEditName">
             <p>Email</p>
@@ -119,11 +131,11 @@
             </button>
             <button class="cancel__btn" (click)="existContainerEdit=false">
                 
-                <img src="../../../assets/imgs/icons/arrow_back_ios_white_24dp.svg" alt=""> Atrás
+                Cancelar
             </button>
         </div>
           
-
+    </article>
     </article>
 
 <style>
