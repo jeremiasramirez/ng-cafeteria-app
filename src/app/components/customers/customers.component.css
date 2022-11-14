@@ -154,7 +154,7 @@ h1{
     min-width: 730px;
     margin-right: 4px;
     padding-top: 10px;
-    height: 320px;
+    height: 350px;
     background-color: #eee;
     flex-direction: column;
     justify-content: flex-start;
@@ -243,7 +243,7 @@ h1{
     bottom:0;
    justify-content: center;
    text-align: center;
-   height: 50px;
+   height:48px;
    background-color: rgb(19, 19, 132);;
    align-items: center;
 }

@@ -16,39 +16,52 @@
 
  
 <section class="card__users">
+    <!-- search user -->
     <input type="search" class="search__user" placeholder="Search">
-    <article class="card__user">  </article>
+    
+    <!-- user card -->
+    <article class="card__user"> 
+        <div class="container__avatar">
+            <img src="../../../assets/imgs/icons/account_black.svg" alt="">
+        </div>    
+
+        <div class="container__title__user">
+            <h1>Jeremias ramirez </h1>
+        </div>
+        <div class="table__data table__fake">
+           
+        </div>
+        <div class="table__data">
+            <p class="table__data__title">EMAIL</p>
+            <p class="table__data__value">jereramirez499@gmail.com</p>
+        </div>
+        <div class="table__data">
+            <p class="table__data__title">ESTADO</p>
+            <p class="table__data__value">Activo</p>
+        </div>
+        <div class="table__data">
+            <p class="table__data__title">PRIVILEGIO</p>
+            <p class="table__data__value">Admin</p>
+        </div>
+        <div class="table__data">
+            <p class="table__data__title">CLAVE ACCESO</p>
+            <p class="table__data__value">protegido</p>
+        </div>
+    </article>
+   
+   
+   
+   
     <article class="card__user">  </article>
     
     <article class="card__user">  </article>
     <article class="card__user">  </article>
+    
 </section>
- 
-<style>
-    .card__users{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 10px;
-      
-    }
+ <style>
   
-    .search__user{
-        width: 75%;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: 1.5px solid #eee;
-        padding: 10px 10px 10px 10px;
-    }
-    .card__user{
-        width: 310px;
-        margin: 10px;
-        height: 350px;
-        border-radius: 10px;
-        background-color: rgb(237, 224, 224)
-    }
-</style>
+ </style>
+ 
 <section class="container__customers" >
    
     <article class="container__add" *ngIf="exist__window__add">
