@@ -20,24 +20,25 @@
     <input type="search" class="search__user" placeholder="Search">
     
     <!-- user card -->
-    <article class="card__user"> 
+    <article class="card__user" *ngFor="let user_ of users"> 
         <div class="container__avatar">
             <img src="../../../assets/imgs/icons/account_black.svg" alt="">
         </div>    
 
         <div class="container__title__user">
-            <h1>Jeremias ramirez </h1>
+            <h1>{{user_.nombre}}</h1>
         </div>
         <div class="table__data table__fake">
            
         </div>
         <div class="table__data">
             <p class="table__data__title">EMAIL</p>
-            <p class="table__data__value">jereramirez499@gmail.com</p>
+            <p class="table__data__value">{{user_.email}}</p>
         </div>
         <div class="table__data">
             <p class="table__data__title">ESTADO</p>
-            <p class="table__data__value">Activo</p>
+            <p class="table__data__value active" *ngIf="user_.estado=='Activo'">{{user_.estado}}</p>
+            <p class="table__data__value inactive" *ngIf="user_.estado=='Inactivo'">{{user_.estado}}</p>
         </div>
         <div class="table__data">
             <p class="table__data__title">PRIVILEGIO</p>
@@ -49,13 +50,10 @@
         </div>
     </article>
    
-   
-   
-   
-    <article class="card__user">  </article>
+   <style>
     
-    <article class="card__user">  </article>
-    <article class="card__user">  </article>
+   </style>
+    
     
 </section>
  <style>

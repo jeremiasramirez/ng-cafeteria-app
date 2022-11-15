@@ -391,7 +391,7 @@ width: 50px;
     padding: 10px 10px 10px 10px;
 }
 .card__user{
-    width: 306px;
+    width: 300px;
     cursor: pointer;
     margin: 10px;
     height: 350px;
@@ -431,7 +431,7 @@ width: 50px;
 
     justify-content: space-between;
     align-items: center;
-    background-color: #eee;
+    background-color: rgb(248, 243, 243);
     /* border-bottom: 1px solid rgb(227, 221, 221); */
     padding: 3px 10px;
 }
@@ -443,4 +443,19 @@ width: 50px;
 }
 .table__data__value{
    font-size:14px;
+}
+.inactive,.active{
+       
+    padding: 3px 5px;
+    border-radius: 10px;
+    color:white;
+    width: 60px;
+    text-align: center;
+}
+.inactive{
+    background-color: rgb(245, 23, 23);
+}
+.active{
+    background-color: rgb(31, 181, 31);
+   
 }

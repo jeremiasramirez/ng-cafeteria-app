@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
   public dateStart:any = new Date().toString().substring(0,16);
   public isFormValidated:any='';
   public existContainerEdit:boolean=false;
-  public users:[]=[]
+  public users:usersI[]=[]
   // public startPage:number=0;
   // public nextPage:number=6;
   // public resultOfTableStart:number=1;
@@ -76,7 +76,7 @@ export class UsersComponent implements OnInit {
     .subscribe((user)=>{
       // console.log(user.response);
       
-      // this.users=user.response;  
+      this.users=user.response;  
       // this.lenAllCustomers=Math.ceil(this.customers.length / 6) ;
     });
 
@@ -100,4 +100,14 @@ export class UsersComponent implements OnInit {
 
 }
 
+}
+
+interface usersI{
+   clave:string;
+   email:string;
+   estado:string;
+   id:string;
+   nombre:string;
+   sessionKey:string;
+   tipoDeUsuario:string;
 }
