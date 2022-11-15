@@ -14,14 +14,83 @@
 </section>
 <app-menu-float color="red"></app-menu-float>
 
- 
+<div class="add__new__client__button" (click)="this.exist__window__add=true">
+    <img src="../../../assets/imgs/icons/add.svg" alt="add">
+</div>
+
+
+<!-- select option -->
+<section class="select__option" *ngIf="existMenuSelection">
+
+    <article class="option__container">
+        
+       
+
+        <div class="option__item animate-fade-up">
+            <img src="../../../assets/imgs/icons/edit_white_18dp.svg" alt="">
+        </div>
+
+        <div class="option__item animate-fade-up">
+            <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="">
+        </div>
+
+        
+        <div class="option__item animate-fade-up" (click)="existMenuSelection=false">
+            <img src="../../../assets/imgs/icons/clear_white_18dp.svg" alt="">
+        </div>
+
+
+       
+    </article>
+
+</section>
+<style>
+    .select__option{
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        top:0;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.749);
+    }
+    .option__item{
+        margin:0 10px;
+        border-radius: 50%;width: 60px;
+        display: flex;
+        justify-content: center;align-items: center;
+        height: 60px;
+        cursor: pointer;
+        background-color: rgb(52, 50, 50);
+    }
+    .option__item:hover{
+        background-color: rgb(36, 35, 35);
+    }
+    .option__container{
+        display: flex;
+        width: 300px;
+        height: 80px;
+        border-radius: 6px;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.667);
+        align-items: center;
+    }
+    .option__item img{
+        width: 40px !important;
+    }
+
+</style>
 <section class="card__users">
+
     <!-- search user -->
-    <input type="search" class="search__user" placeholder="Search">
+    <input type="search" class="search__user" placeholder="Search"  #data (keyup)="searchUser(data.value)" >
     
     <!-- user card -->
-    <article class="card__user" *ngFor="let user_ of users"> 
-        <div class="container__avatar">
+    <article class="card__user animate" *ngFor="let user_ of users| slice:0:3" (click)="existMenuSelection=true"> 
+        <div class="container__avatar animate">
             <img src="../../../assets/imgs/icons/account_black.svg" alt="">
         </div>    
 
@@ -32,21 +101,21 @@
            
         </div>
         <div class="table__data">
-            <p class="table__data__title">EMAIL</p>
-            <p class="table__data__value">{{user_.email}}</p>
+            <p class="table__data__title animate">EMAIL</p>
+            <p class="table__data__value animate">{{user_.email}}</p>
         </div>
         <div class="table__data">
-            <p class="table__data__title">ESTADO</p>
-            <p class="table__data__value active" *ngIf="user_.estado=='Activo'">{{user_.estado}}</p>
-            <p class="table__data__value inactive" *ngIf="user_.estado=='Inactivo'">{{user_.estado}}</p>
+            <p class="table__data__title animate">ESTADO</p>
+            <p class="table__data__value animate active" *ngIf="user_.estado=='Activo'">{{user_.estado}}</p>
+            <p class="table__data__value animate inactive" *ngIf="user_.estado=='Inactivo'">{{user_.estado}}</p>
         </div>
         <div class="table__data">
-            <p class="table__data__title">PRIVILEGIO</p>
-            <p class="table__data__value">Admin</p>
+            <p class="table__data__title animate">PRIVILEGIO</p>
+            <p class="table__data__value animate">Admin</p>
         </div>
         <div class="table__data">
-            <p class="table__data__title">CLAVE ACCESO</p>
-            <p class="table__data__value">protegido</p>
+            <p class="table__data__title animate">CLAVE ACCESO</p>
+            <p class="table__data__value animate">protegido</p>
         </div>
     </article>
    

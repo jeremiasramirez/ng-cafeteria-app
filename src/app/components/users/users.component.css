@@ -42,7 +42,23 @@ h1{
     height: 60px;
     
 }
- 
+.add__new__client__button{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:5%;
+    border-radius: 50%;
+    margin-left: 10px;
+
+    background-color: rgb(192, 42, 42);
+    cursor: pointer;
+}
+.add__new__client__button img{
+    width: 40px;
+}
 .title-menu-home{
     padding-left: 00px;
     text-align: center;
@@ -384,7 +400,11 @@ width: 50px;
   
 }
 .search__user{
-    width: 75%;
+    width: 85%;
+    position: sticky;
+    top: -2px;
+ 
+    z-index: 0;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1.5px solid #eee;
@@ -394,6 +414,7 @@ width: 50px;
     width: 300px;
     cursor: pointer;
     margin: 10px;
+    margin-bottom: 20px;
     height: 350px;
     box-shadow: 1px 1px 5px rgb(207, 203, 203);
     border-radius: 10px;

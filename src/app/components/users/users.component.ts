@@ -32,6 +32,7 @@ export class UsersComponent implements OnInit {
   public isFormValidated:any='';
   public existContainerEdit:boolean=false;
   public users:usersI[]=[]
+  public existMenuSelection:boolean=false;
   // public startPage:number=0;
   // public nextPage:number=6;
   // public resultOfTableStart:number=1;
@@ -51,14 +52,29 @@ export class UsersComponent implements OnInit {
     this.getAllUsers()
   }
 
+  public searchUser(data:string){
+    let filtered=this.users.filter((element)=>{
+      return element.nombre.toLowerCase().includes(data);
+    })
+
+    if(filtered.length==0 || data.length==0) this.getAllUsers();
+    this.users=filtered;
+    
+    
+  }
+
 
   public postUser(){
- 
+    
+   
     if(this.formName != '' && this.formEmail != '' && this.formState && this.formUserType && this.formPass){
       
       this.usersService.postUser(this.formName,this.formEmail,this.formUserType,this.formState,this.formPass,'0')
        .subscribe((user)=>{
-        console.log('agregado')
+        console.log(this.users);
+        
+        this.getAllUsers()
+        this.isFormValidated='true'
         this.exist__window__add=false
        })
 
