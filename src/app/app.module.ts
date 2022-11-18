@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CustomersComponent } from './components/customers/components.component';
 import { UsersComponent } from './components/users/users.component';
-import { MenuFloatComponent } from './components/menu-float/menu-float.component';
-import { PipeSearch } from './pipes/search.pipe';
+import { MenuFloatComponent } from './components/menu-float/menu-float.component'; 
+import { EmployeeComponent } from './components/employee/employee.component';
  
  
  
@@ -27,7 +27,8 @@ import { PipeSearch } from './pipes/search.pipe';
     CustomersComponent, 
     UsersComponent,
     MenuFloatComponent ,
-    PipeSearch
+ 
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,

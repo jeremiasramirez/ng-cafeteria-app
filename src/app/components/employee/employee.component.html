@@ -1,0 +1,96 @@
+<section class='container-menu-home'>
+
+    <div class="logo-menu animate">
+        <img src="../../../assets/imgs/icons/employee_black_24dp.svg" alt="logo">
+    </div>
+
+ 
+
+    <article class="title-menu-home">
+        <h1 class="animate-fade-up">Gestión de empleados</h1>
+    </article>
+
+   
+</section>
+<app-menu-float color="red"></app-menu-float>
+
+ 
+<div class="add__new__client__button"  >
+    <img src="../../../assets/imgs/icons/add_black_24dp.svg" alt="add">
+</div>
+
+
+
+ <!-- aggregar usuario -->
+ <section class="container__customers" >
+   
+    <article class="container__add" *ngIf="exist__window__add">
+       
+         <div class="container__inputs animate">
+           
+            <h1 class="title ">Nuevo usuario</h1>
+            <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+    
+         
+           
+            <p class="placeholder__user ">Nombre</p>
+            <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">
+        
+
+            <p class="placeholder__user">Email</p>
+            <input type="email" placeholder="Email" [(ngModel)]="formEmail"  >
+            
+            <p class="placeholder__user">Estado</p>
+            <select name="estado"   class="state" [(ngModel)]="formState">
+                <option  value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+            <p class="placeholder__user">Privilegios</p>
+            <select name="privilegios"  [(ngModel)]="formUserType" class="state">
+                <option  value="Admin">Administrador</option>
+                <option value="Usuario">Usuario</option>
+            </select>
+            <p class="placeholder__user">Clave</p>
+            <input type="password" [(ngModel)]="formPass" placeholder="Password">
+       
+            <button class="btn-add"  >Agregar</button>
+            <button class="btn-cancel" (click)="exist__window__add=false">Cancelar</button>
+           
+        </div>
+    
+    </article>
+ 
+</section>
+
+
+  <!-- employee card -->
+  <article class="card__user animate" *ngFor="let employee of employees|slice:0:3"  > 
+    <div class="container__avatar animate">
+        <img src="../../../assets/imgs/icons/account_black.svg" alt="">
+    </div>    
+
+    <div class="container__title__user">
+        <h1>{{employee.nombre}}</h1>
+    </div>
+    <div class="table__data table__fake">
+       
+    </div>
+    <div class="table__data">
+        <p class="table__data__title animate">CÉDULA</p>
+        <p class="table__data__value animate">{{employee.cedula}}</p>
+    </div>
+
+     
+    <div class="table__data">
+        <p class="table__data__title animate">TANDA  </p>
+        <p class="table__data__value animate">{{employee.tanda}}</p>
+    </div>
+    <div class="table__data">
+        <p class="table__data__title animate">Cargo</p>
+        <p class="table__data__value animate">{{employee.cargo}}</p>
+    </div>
+    <div class="table__data">
+        <p class="table__data__title animate">Fecha ingreso</p>
+        <p class="table__data__value animate">{{employee.fechaIngreso}}</p>
+    </div>
+</article>

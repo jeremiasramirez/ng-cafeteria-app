@@ -27,11 +27,11 @@
        
 
         <div class="option__item animate-fade-up">
-            <img src="../../../assets/imgs/icons/edit_white_18dp.svg" alt="">
+            <img src="../../../assets/imgs/icons/edit_white_18dp.svg" alt="edit image" (click)="openAndCloseMenuSelection()">
         </div>
 
         <div class="option__item animate-fade-up">
-            <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="">
+            <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="" (click)="deleteUser()">
         </div>
 
         
@@ -44,52 +44,20 @@
     </article>
 
 </section>
-<style>
-    .select__option{
-        position: fixed;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        top:0;
-        z-index: 10;
-        background-color: rgba(0, 0, 0, 0.749);
-    }
-    .option__item{
-        margin:0 10px;
-        border-radius: 50%;width: 60px;
-        display: flex;
-        justify-content: center;align-items: center;
-        height: 60px;
-        cursor: pointer;
-        background-color: rgb(52, 50, 50);
-    }
-    .option__item:hover{
-        background-color: rgb(36, 35, 35);
-    }
-    .option__container{
-        display: flex;
-        width: 300px;
-        height: 80px;
-        border-radius: 6px;
-        justify-content: center;
-        background-color: rgba(0, 0, 0, 0.667);
-        align-items: center;
-    }
-    .option__item img{
-        width: 40px !important;
-    }
 
-</style>
 <section class="card__users">
 
     <!-- search user -->
     <input type="search" class="search__user" placeholder="Search"  #data (keyup)="searchUser(data.value)" >
+    <div class="management__data animate">
+        <button  ><img src="../../../assets/imgs/icons/arrow_back.svg" alt=""></button>
+        <p> {{ '1'  }}</p> <p> of </p> <p> {{ '2' }} </p>
+        <button  ><img src="../../../assets/imgs/icons/arrow_next.svg" alt=""></button>
+        <button  ><img src="../../../assets/imgs/icons/" alt=""></button>
     
+    </div>  
     <!-- user card -->
-    <article class="card__user animate" *ngFor="let user_ of users| slice:0:3" (click)="existMenuSelection=true"> 
+    <article class="card__user animate" *ngFor="let user_ of users|slice:0:3" (click)="openCardUser(user_)"> 
         <div class="container__avatar animate">
             <img src="../../../assets/imgs/icons/account_black.svg" alt="">
         </div>    
@@ -111,7 +79,7 @@
         </div>
         <div class="table__data">
             <p class="table__data__title animate">PRIVILEGIO</p>
-            <p class="table__data__value animate">Admin</p>
+            <p class="table__data__value animate">{{user_.tipoDeUsuario}}</p>
         </div>
         <div class="table__data">
             <p class="table__data__title animate">CLAVE ACCESO</p>
@@ -119,16 +87,14 @@
         </div>
     </article>
    
-   <style>
-    
-   </style>
-    
+   
     
 </section>
  <style>
   
  </style>
  
+ <!-- aggregar usuario -->
 <section class="container__customers" >
    
     <article class="container__add" *ngIf="exist__window__add">
@@ -137,21 +103,21 @@
            
             <h1 class="title ">Nuevo usuario</h1>
             <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
-    
-         
-           
+      
             <p class="placeholder__user ">Nombre</p>
-            <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">
-        
-
+            <input type="text" disabled="" placeholder="Nombre completo" [(ngModel)]="formName">
+         
             <p class="placeholder__user">Email</p>
-            <input type="email" placeholder="Email" [(ngModel)]="formEmail">
-            
+            <select name="emails_charged" class="state"  [(ngModel)]="formEmail" (change)="addFromEmployee( )" >
+                <option class="state" *ngFor="let employee of employees"  [value]="employee.email" >{{employee.email}}</option>                
+            </select>
+          
             <p class="placeholder__user">Estado</p>
             <select name="estado"   class="state" [(ngModel)]="formState">
                 <option  value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>
+
             <p class="placeholder__user">Privilegios</p>
             <select name="privilegios"  [(ngModel)]="formUserType" class="state">
                 <option  value="Admin">Administrador</option>
@@ -166,11 +132,52 @@
         </div>
     
     </article>
+ 
+</section>
+
+
+
+ <!-- editar usuario -->
+ <section class="container__customers" *ngIf="exist__window__edit">
+   
+    <article class="container__add"  >
+       
+         <div class="container__inputs animate edit__window" >
+           
+            <h1 class="title ">Editar usuario</h1>
+            <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+    
+         
+           
+            <p class="placeholder__user ">Nombre</p>
+            <input type="text" placeholder="Nombre completo" [(ngModel)]="formEditName">
+        
+
+            <p class="placeholder__user">Email</p>
+            <input type="email" placeholder="Email" [(ngModel)]="formEditEmail">
+            
+            <p class="placeholder__user">Estado</p>
+            <select name="estado"   class="state" [(ngModel)]="formStateEdit">
+                <option  value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+            <p class="placeholder__user">Privilegios</p>
+            <select name="privilegios"  [(ngModel)]="formUserTypeEdit" class="state">
+                <option  value="Admin">Administrador</option>
+                <option value="Usuario">Usuario</option>
+            </select>
+            <p class="placeholder__user">Clave</p> 
+            <input type="text" [(ngModel)]="formPassEdit" placeholder="Password">
+       
+            <button class="btn-add" (click)="updateUser()" >EDITAR</button>
+            <button class="btn-cancel" (click)="exist__window__edit=false">Cancelar</button>
+           
+        </div>
+    
+    </article>
 
     
  
  
 
 </section>
-
- 

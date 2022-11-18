@@ -6,9 +6,7 @@ import { ajax } from 'rxjs/ajax';
 export class AccountService {
     
       
-   constructor(){
-       
-   }
+   constructor(){ }
 
 
    public getUserByToken(token:string){

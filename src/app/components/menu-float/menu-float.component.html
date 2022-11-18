@@ -3,14 +3,19 @@
         
         <div class="item animate " (click)="to('home')">
            <img  class="" src="../../../assets/imgs/icons/home_white_24dp.svg">
+           
         </div>
 
         <div class="item animate " (click)="to('customers')"  >
-            <img class=""  src="../../../assets/imgs/icons/group_add_white_24dp.svg">
+            <img class=""  src="../../../assets/imgs/icons/person_add_alt_white_24dp.svg">
          </div>
 
          <div class="item animate " (click)="to('users')" *ngIf="isAdmin==='Admin'">
             <img  class="" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg">
+         </div>
+
+         <div class="item animate " (click)="to('employee')" *ngIf="isAdmin==='Admin'">
+            <img  class="" src="../../../assets/imgs/icons/employee_white.svg">
          </div>
 
          <div class="item animate " (click)="to('home')">

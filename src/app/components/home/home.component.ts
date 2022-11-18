@@ -69,9 +69,12 @@ export class HomeComponent{
         }) 
     }
 
-
+    
     public routeToCustomers(){
         this.sesion.routeTo('customers')
+    }
+    public routeToEmployee(){
+        this.sesion.routeTo('employee')
     }
 
     public routeToUsers(){

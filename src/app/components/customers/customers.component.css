@@ -5,6 +5,7 @@ h1{
 .logo-menu {
     text-align: center;
     padding-top: 20px;
+    margin-top: -20px;
 }
 .logo-menu img{
     width:60px;
@@ -18,7 +19,7 @@ h1{
     justify-content: center;
     align-items: center;
     position: absolute;
-    top:5%;
+    top:3%;
     border-radius: 50%;
     margin-left: 10px;
 
@@ -32,19 +33,19 @@ h1{
     background-color: rgb(19, 19, 132);
     max-width: 100vw;
     
-    height: 130px;
+    height: 120px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
 .title-menu-home{
-    padding-left: 00px;
+    padding-left: 0px;
     text-align: center;
-    padding-top: 13px;
+    padding-top: 0px;
+    margin-top: 0px;
     color: whitesmoke;
     font-family:    'Lucida Sans', Arial, sans-serif;
 }
-
 
 .container__customers{
     display: flex;

@@ -1,5 +1,6 @@
 import { Routes,RouterModule as RM} from "@angular/router";
 import { CustomersComponent } from "./components/customers/components.component";
+import { EmployeeComponent } from "./components/employee/employee.component";
 
 //components
 import { HomeComponent } from "./components/home/home.component";
@@ -29,6 +30,14 @@ const ROUTEAPP :Routes=[
     {
         path: 'users',
         component: UsersComponent
-    }
+    },
+    {
+        path: 'employee',
+        component: EmployeeComponent
+    },
+    {
+        path: '**',
+        component: StartComponent
+    },
 ]
 export var ROUTES = RM.forRoot(ROUTEAPP);
