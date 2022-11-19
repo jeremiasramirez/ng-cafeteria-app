@@ -48,7 +48,7 @@
 <section class="card__users">
 
     <!-- search user -->
-    <input type="search" class="search__user" placeholder="Search"  #data (keyup)="searchUser(data.value)" >
+    <input type="search"   class="search__user" placeholder="Search"  #data (keyup)="searchUser(data.value)" >
     <div class="management__data animate">
         <button  ><img src="../../../assets/imgs/icons/arrow_back.svg" alt=""></button>
         <p> {{ '1'  }}</p> <p> of </p> <p> {{ '2' }} </p>
@@ -109,7 +109,7 @@
          
             <p class="placeholder__user">Email</p>
             <select name="emails_charged" class="state"  [(ngModel)]="formEmail" (change)="addFromEmployee( )" >
-                <option class="state" *ngFor="let employee of employees"  [value]="employee.email" >{{employee.email}}</option>                
+                <option class="state" *ngFor="let employee of employees"  [value]="employee.emails" >{{employee.estado=='Activo' ? employee.emails:employee.emails+' (INACTIVO)'}}</option>                
             </select>
           
             <p class="placeholder__user">Estado</p>
@@ -118,7 +118,7 @@
                 <option value="Inactivo">Inactivo</option>
             </select>
 
-            <p class="placeholder__user">Privilegios</p>
+            <p class="placeholder__user" >Privilegios</p>
             <select name="privilegios"  [(ngModel)]="formUserType" class="state">
                 <option  value="Admin">Administrador</option>
                 <option value="Usuario">Usuario</option>

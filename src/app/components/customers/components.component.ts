@@ -92,7 +92,7 @@ export class CustomersComponent implements OnInit {
 
   public searchCustomer(data:string){
     let filtered=this.customers.filter((element)=>{
-      return element.nombre.toLowerCase().includes(data);
+      return element.email.toLowerCase().includes(data);
     })
 
     if(filtered.length==0 || data.length==0) this.getAllCustomer();

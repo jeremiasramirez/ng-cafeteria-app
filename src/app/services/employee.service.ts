@@ -12,13 +12,13 @@ export class EmployeeService {
       return ajax.get(`https://localhost:7279/employee/all`)
    }
 
-//    public postUser(name:string,email:string,usertype:string,state:string,clave:string,sesionkey:string){ 
-//       return ajax.post(`https://localhost:7279/users/new?name=${name}&usertype=${usertype}&state=${state}&clave=${clave}&sessionkey=${sesionkey}&email=${email}`)
-//    }
+   public postEmployee(name:string,cedula:string,  tanda:string, datepost:string,state:string,cargo:string,email:string){ 
+      return ajax.post(`https://localhost:7279/employee/new?name=${name}&cedula=${cedula}&tanda=${tanda}&datepost=${datepost}&state=${state}&cargo=${cargo}&email=${email}`)
+   }
  
-//    public updateUser(id:number,name:string,email:string,usertype:string,state:string,clave:any,sesionkey:string){
-//      return ajax.post(`https://localhost:7279/users/update?id=${id}&name=${name}&usertype=${usertype}&state=${state}&clave=${clave}&sessionkey=${sesionkey}&email=${email}`)
-//    }
+   public updateEmployee(id:number, name:string,cedula:string,  tanda:string, datepost:string,state:string,cargo:string,email:string){
+     return ajax.post(`https://localhost:7279/employee/update?id=${id}&name=${name}&cedula=${cedula}&tanda=${tanda}&datepost=${datepost}&state=${state}&cargo=${cargo}&email=${email}`)
+   }
 
   
    

@@ -15,9 +15,37 @@
 <app-menu-float color="red"></app-menu-float>
 
  
-<div class="add__new__client__button"  >
+<div class="add__new__client__button"  (click)="exist__window__add=true">
     <img src="../../../assets/imgs/icons/add_black_24dp.svg" alt="add">
 </div>
+
+<!-- select option -->
+<section class="select__option" *ngIf="existMenuSelection">
+
+    <article class="option__container">
+        
+       
+
+        <div class="option__item animate-fade-up">
+            <img src="../../../assets/imgs/icons/edit_white_18dp.svg" alt="edit image" (click)="openAndCloseMenuSelection()">
+        </div>
+
+        <div class="option__item animate-fade-up">
+            <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="" >
+        </div>
+
+        
+        <div class="option__item animate-fade-up" (click)="existMenuSelection=false">
+            <img src="../../../assets/imgs/icons/clear_white_18dp.svg" alt="">
+        </div>
+
+
+       
+    </article>
+
+</section>
+
+
 
 
 
@@ -28,32 +56,46 @@
        
          <div class="container__inputs animate">
            
-            <h1 class="title ">Nuevo usuario</h1>
+            <h1 class="title ">Agregar empleado</h1>
             <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
     
-         
            
+
             <p class="placeholder__user ">Nombre</p>
-            <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">
-        
+            <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">        
 
             <p class="placeholder__user">Email</p>
-            <input type="email" placeholder="Email" [(ngModel)]="formEmail"  >
+            <input type="email" placeholder="Email" [(ngModel)]="formEmail">
             
+            <p class="placeholder__user">Cédula</p>
+            <input type="text" placeholder="Cedula"  [(ngModel)]="formEmployeeCedula">
+
+            <p class="placeholder__user">Tanda</p>
+            <select name="estado" class="state"  [(ngModel)]="formEmployeeTanda">
+                <option value="Diurno">Diurno</option>
+                <option value="Nocturno">Nocturno</option>
+            </select>
+
             <p class="placeholder__user">Estado</p>
-            <select name="estado"   class="state" [(ngModel)]="formState">
-                <option  value="Activo">Activo</option>
+            <select name="estado"   class="state"  [(ngModel)]="formState">
+                <option value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
             </select>
-            <p class="placeholder__user">Privilegios</p>
-            <select name="privilegios"  [(ngModel)]="formUserType" class="state">
-                <option  value="Admin">Administrador</option>
-                <option value="Usuario">Usuario</option>
-            </select>
-            <p class="placeholder__user">Clave</p>
-            <input type="password" [(ngModel)]="formPass" placeholder="Password">
-       
-            <button class="btn-add"  >Agregar</button>
+
+            <p class="placeholder__user" >Cargo</p>
+
+            <input list="brow" class="state" [(ngModel)]="formEmployeeCargo">
+                <datalist id="brow">
+                <option value="Empleados de cocina">
+                <option value="Mesero">
+                <option value="Servicio al cliente">
+                <option value="Gerente de ventas">
+                <option value="Gerente">
+                <option value="Jefe de recursos humanos"></option>
+            </datalist>  
+            
+            
+            <button class="btn-add"  (click)="postEmployee()">Agregar</button>
             <button class="btn-cancel" (click)="exist__window__add=false">Cancelar</button>
            
         </div>
@@ -62,11 +104,11 @@
  
 </section>
 
-
+<section class="card__users">
   <!-- employee card -->
-  <article class="card__user animate" *ngFor="let employee of employees|slice:0:3"  > 
+  <article class="card__user animate" *ngFor="let employee of employees|slice:0:3" (click)="openCardEmployee(employee)"> 
     <div class="container__avatar animate">
-        <img src="../../../assets/imgs/icons/account_black.svg" alt="">
+        <img src="../../../assets/imgs/icons/account_black.svg" alt="" [hidden]="exist__window__add==true">
     </div>    
 
     <div class="container__title__user">
@@ -94,3 +136,63 @@
         <p class="table__data__value animate">{{employee.fechaIngreso}}</p>
     </div>
 </article>
+</section>
+
+
+ <!-- editar usuario -->
+ <section class="container__customers" *ngIf="exist__window__edit">
+   
+    <article class="container__add"  >
+       
+         <div class="container__inputs  edit__window" >
+           
+            <h1 class="title animate">Editar empleado</h1>
+            <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
+    
+            
+
+            <p class="placeholder__user ">Nombre</p>
+            <input type="text" placeholder="Nombre completo" [(ngModel)]="formEditName">        
+
+            <p class="placeholder__user">Email</p>
+            <input type="email" placeholder="Email" [(ngModel)]="formEditEmail">
+            
+            <p class="placeholder__user">Cédula</p>
+            <input type="text" placeholder="Cedula"  [(ngModel)]="formEditEmployeeCedula">
+
+            <p class="placeholder__user">Tanda</p>
+            <select name="estado" class="state"  [(ngModel)]="formEditEmployeeTanda">
+                <option value="Diurno">Diurno</option>
+                <option value="Nocturno">Nocturno</option>
+            </select>
+
+            <p class="placeholder__user">Estado</p>
+            <select name="estado"   class="state"  [(ngModel)]="formStateEdit">
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
+
+            <p class="placeholder__user" >Cargo</p>
+
+            <input list="brow" class="state" [(ngModel)]="formEditEmployeeCargo">
+                <datalist id="brow">
+                <option value="Empleados de cocina">
+                <option value="Mesero">
+                <option value="Servicio al cliente">
+                <option value="Gerente de ventas">
+                <option value="Gerente">
+                <option value="Jefe de recursos humanos"></option>
+            </datalist>  
+            
+            <button class="btn-add"   >EDITAR</button>
+            <button class="btn-cancel" (click)="exist__window__edit=false">Cancelar</button>
+           
+        </div>
+    
+    </article>
+
+    
+ 
+ 
+
+</section>

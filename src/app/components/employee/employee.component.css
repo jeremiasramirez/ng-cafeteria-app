@@ -52,12 +52,16 @@ h1{
     align-items: center;
     position: absolute;
     top:4%;
-    border-radius: 50%;
+    border-radius: 25%;
     margin-left: 10px;
-
+transition: .3s;
     background-color: rgb(241, 230, 230);
     cursor: pointer;
 }
+.add__new__client__button:hover{
+
+    background-color: #ddd;
+} 
 .add__new__client__button img{
     width: 40px;
 }
@@ -75,7 +79,7 @@ h1{
     padding-top: 4px;
 }
 .title{
-    margin-top: -50px;
+    margin-top: 0px;
     margin-bottom: 20px;
     color: rgb(53, 50, 50);
     font-family:  sans-serif;
@@ -89,7 +93,7 @@ h1{
     background-color: rgba(0, 0, 0, 0.591);
     height: 100%;
     position: absolute;
-  
+    
     margin-left: -7px;
     top:0%;
     display: flex;
@@ -100,13 +104,14 @@ h1{
 .container__inputs{
     display: flex;
     width: 500px;
-    height: 620px;
-    
+    height: 618px;
+    margin-bottom: -8px;
     background-color: rgb(240, 228, 228);
     flex-direction: column;
     justify-content: center;
     border-radius: 5px;
     align-items: center;
+    margin-top: -10px;
     box-shadow: 1px 1px 10px rgb(139, 130, 130);
     flex-wrap: wrap;
 }
@@ -115,6 +120,7 @@ h1{
     border:none;
     cursor: pointer;
     margin: 2px 0;
+ 
     padding-left:  11px;
     padding-right:  11px;
     outline: none;
@@ -128,7 +134,7 @@ h1{
     padding:0;
     color: #555;
     margin-left: -270px;
-    margin-top: 20px;
+    margin-top: 16px;
     font-size: 14px;
  }
 .container__inputs button{
@@ -136,7 +142,7 @@ h1{
     padding:10px;
     font-size: 14px;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 16px;
     border:none;
     background-color: rgb(216, 216, 216);
     color: rgb(44, 42, 42);
@@ -320,6 +326,7 @@ h1{
     height: 80%;
     overflow: hidden;
     width: 400px;
+    z-index: 30 !important;
     right: 0;
  }
  .container__title__edit{
@@ -413,7 +420,7 @@ width: 50px;
     position: sticky;
     top: -2px;
  
-    z-index: 0;
+    z-index: -1;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1.5px solid #eee;
@@ -432,6 +439,7 @@ width: 50px;
 .container__avatar{
     display: flex;
     margin-top: 10px;
+    height: 80px;
     justify-content: center;
 }
 .container__avatar img{
@@ -502,7 +510,7 @@ width: 50px;
     height: 100%;
     top:0;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.749);
+    background-color: rgba(255, 255, 255, 0.938);
 }
 .option__item{
     margin:0 10px;
@@ -511,10 +519,10 @@ width: 50px;
     justify-content: center;align-items: center;
     height: 60px;
     cursor: pointer;
-    background-color: rgb(52, 50, 50);
+    background-color: rgb(92, 92, 92);
 }
 .option__item:hover{
-    background-color: rgb(36, 35, 35);
+    background-color: rgb(65, 64, 64);
 }
 .option__container{
     display: flex;
@@ -522,7 +530,8 @@ width: 50px;
     height: 80px;
     border-radius: 6px;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.667);
+    box-shadow: 1px 1px 8px grey;
+    background-color: rgb(255, 255, 255);
     align-items: center;
 }
 .option__item img{

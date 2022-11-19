@@ -71,7 +71,7 @@ export class UsersComponent implements OnInit {
   public addFromEmployee(){
  
 
-   var finded= this.employees.filter((emp)=> emp.email == this.formEmail );
+   var finded= this.employees.filter((emp)=> emp.emails == this.formEmail );
      
    
     if(finded.length){
@@ -99,7 +99,7 @@ export class UsersComponent implements OnInit {
   
   public searchUser(data:string){
     let filtered=this.users.filter((element)=>{
-      return element.nombre.toLowerCase().includes(data);
+      return element.email.toLowerCase().includes(data);
     })
 
     if(filtered.length==0 || data.length==0) this.getAllUsers();
@@ -252,4 +252,5 @@ interface EmployeesI{
   estado:string;
   cargo:string;
  email:string;
+ emails:string;
 }
