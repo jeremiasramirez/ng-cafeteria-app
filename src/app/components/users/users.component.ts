@@ -71,24 +71,25 @@ export class UsersComponent implements OnInit {
   public addFromEmployee(){
  
 
-   var finded= this.employees.filter((emp)=> emp.emails == this.formEmail );
+   var finded= this.employees.filter((emp)=> emp.emails == this.formEmail && emp.estado=="Activo");
      
+    
    
     if(finded.length){
-      if(finded[0].estado=='Activo'){
+       
         this.formName=finded[0].nombre;
-        
-      }
+      
     }
     
     
   }
   public changeAllEmployeesInSelectCall(){
     this.changeAllEmployeesInSelect().subscribe((response)=>{
-      response.response.forEach((emp:EmployeesI)=>{
-        if(emp.estado=='Activo'){
-          this.employees=response.response;
-        }
+     
+      response.response.forEach((emp:EmployeesI )=>{
+       
+          this.employees=response.response  
+       
       })
     })
   }

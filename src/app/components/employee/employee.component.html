@@ -22,16 +22,20 @@
 <!-- select option -->
 <section class="select__option" *ngIf="existMenuSelection">
 
+ 
     <article class="option__container">
         
        
+        <div class="option__item animate-fade-up">
+            <img src="../../../assets/imgs/icons/visibility_white_24dp.svg" alt="edit image" (click)="activatedAndDisableSelection()">
+        </div>
 
         <div class="option__item animate-fade-up">
             <img src="../../../assets/imgs/icons/edit_white_18dp.svg" alt="edit image" (click)="openAndCloseMenuSelection()">
         </div>
 
         <div class="option__item animate-fade-up">
-            <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="" >
+            <img src="../../../assets/imgs/icons/delete_outline_white_24dp.svg" alt="" (click)="deleteEmployee()">
         </div>
 
         
@@ -58,9 +62,7 @@
            
             <h1 class="title ">Agregar empleado</h1>
             <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
-    
-           
-
+     
             <p class="placeholder__user ">Nombre</p>
             <input type="text" placeholder="Nombre completo" [(ngModel)]="formName">        
 
@@ -77,10 +79,10 @@
             </select>
 
             <p class="placeholder__user">Estado</p>
-            <select name="estado"   class="state"  [(ngModel)]="formState">
+            <select name="estado" class="state"  [(ngModel)]="formState">
                 <option value="Activo">Activo</option>
                 <option value="Inactivo">Inactivo</option>
-            </select>
+            </select> 
 
             <p class="placeholder__user" >Cargo</p>
 
@@ -106,7 +108,7 @@
 
 <section class="card__users">
   <!-- employee card -->
-  <article class="card__user animate" *ngFor="let employee of employees|slice:0:3" (click)="openCardEmployee(employee)"> 
+  <article class="card__user animate" *ngFor="let employee of employees" (click)="openCardEmployee(employee)"> 
     <div class="container__avatar animate">
         <img src="../../../assets/imgs/icons/account_black.svg" alt="" [hidden]="exist__window__add==true">
     </div>    
@@ -114,30 +116,129 @@
     <div class="container__title__user">
         <h1>{{employee.nombre}}</h1>
     </div>
-    <div class="table__data table__fake">
-       
-    </div>
+    <div class="table__data table__fake">  </div>
     <div class="table__data">
         <p class="table__data__title animate">CÉDULA</p>
         <p class="table__data__value animate">{{employee.cedula}}</p>
     </div>
-
-     
+ 
     <div class="table__data">
         <p class="table__data__title animate">TANDA  </p>
         <p class="table__data__value animate">{{employee.tanda}}</p>
     </div>
+   
     <div class="table__data">
-        <p class="table__data__title animate">Cargo</p>
-        <p class="table__data__value animate">{{employee.cargo}}</p>
-    </div>
-    <div class="table__data">
-        <p class="table__data__title animate">Fecha ingreso</p>
-        <p class="table__data__value animate">{{employee.fechaIngreso}}</p>
+        <p class="table__data__title animate">Estado</p>
+        <p class="table__data__value animate active" *ngIf="employee.estado=='Activo'">{{employee.estado}}</p>
+        <p class="table__data__value animate inactive" *ngIf="employee.estado!='Activo'">{{employee.estado}}</p>
+      
     </div>
 </article>
 </section>
 
+<!-- show employee -->
+<section class="container__main__show__employee" *ngIf="isActiveShowEmployee==true">
+    
+    <article class="card__employee__show animate-fade-up" >
+        <div class="container__avatar__show__employee animate">
+            <img src="../../../assets/imgs/icons/account_black.svg" alt="" [hidden]="exist__window__add==true">
+        </div>  
+        <div class="container__title__user">
+            <h1>{{formEditName}}</h1>
+        </div>
+
+        <div class="table__data table__fake"></div>
+
+        <div class="table__data">
+            <p class="table__data__title animate">ESTADO</p>
+            <p class="table__data__value animate active"  >{{formStateEdit}}</p>
+        </div>
+
+        <div class="table__data">
+            <p class="table__data__title animate">CÉDULA</p>
+            <p class="table__data__value animate"  >{{formEditEmployeeCedula}}</p>
+        </div>
+
+        <div class="table__data">
+            <p class="table__data__title animate">TANDA</p>
+            <p class="table__data__value animate"  >{{formEditEmployeeTanda}}</p>
+        </div>
+
+        <div class="table__data">
+            <p class="table__data__title animate">CARGO</p>
+            <p class="table__data__value animate"  >{{formEditEmployeeCargo}}</p>
+        </div>
+
+        <div class="table__data">
+            <p class="table__data__title animate">EMAIL</p>
+            <p class="table__data__value animate"  > {{formEditEmail}}</p>
+        </div>
+
+        <div class="table__data">
+            <p class="table__data__title animate">FECHA INGRESO</p>
+            <p class="table__data__value animate"  > {{formEmployeeDatePost}}</p>
+        </div>
+
+        <div class="close__show__employee">
+            <button (click)="isActiveShowEmployee=false">OK</button>
+        </div>
+    </article>
+  
+</section>
+
+<style>
+    .close__show__employee{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top:7px;
+    }
+    .close__show__employee button{
+        width: 80%;
+        padding: 10px 0;
+        cursor: pointer;
+        color:rgba(255, 0, 0, 0.719);
+        border-radius: 10px;
+        font-weight: 600;
+        background-color: rgb(223, 240, 240);
+        transition: .3s;
+        border:none;
+       
+    }
+    .close__show__employee button:hover{
+        background-color: rgba(231, 229, 229, 0.95);
+    }
+
+    .container__main__show__employee{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom:0;
+        background-color: rgba(0, 0, 0, 0.797);
+    }
+    .card__employee__show{
+        width: 400px;
+        height: 500px;
+        padding-top: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px rgb(222, 218, 218);
+    }
+    .container__avatar__show__employee{
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        border-radius: 10px;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+    }
+    .container__avatar__show__employee img{ width: 80px;}
+</style>
 
  <!-- editar usuario -->
  <section class="container__customers" *ngIf="exist__window__edit">
@@ -148,9 +249,7 @@
            
             <h1 class="title animate">Editar empleado</h1>
             <div *ngIf="isFormValidated=='false'" class="message-error animate">Todos los campos son requeridos</div>
-    
-            
-
+     
             <p class="placeholder__user ">Nombre</p>
             <input type="text" placeholder="Nombre completo" [(ngModel)]="formEditName">        
 
@@ -184,7 +283,7 @@
                 <option value="Jefe de recursos humanos"></option>
             </datalist>  
             
-            <button class="btn-add"   >EDITAR</button>
+            <button class="btn-add"   (click)="updateEmployee()">EDITAR</button>
             <button class="btn-cancel" (click)="exist__window__edit=false">Cancelar</button>
            
         </div>

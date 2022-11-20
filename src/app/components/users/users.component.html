@@ -107,11 +107,11 @@
             <p class="placeholder__user ">Nombre</p>
             <input type="text" disabled="" placeholder="Nombre completo" [(ngModel)]="formName">
          
-            <p class="placeholder__user">Email</p>
+            <p class="placeholder__user">Empleado</p>
             <select name="emails_charged" class="state"  [(ngModel)]="formEmail" (change)="addFromEmployee( )" >
-                <option class="state" *ngFor="let employee of employees"  [value]="employee.emails" >{{employee.estado=='Activo' ? employee.emails:employee.emails+' (INACTIVO)'}}</option>                
+                <option class="state" *ngFor="let employee of employees"  [value]="employee.emails" >{{employee.estado=="Activo"? employee.emails:employee.nombre+' (EMPLEADO INACTIVO)' }}</option>                
             </select>
-          
+            
             <p class="placeholder__user">Estado</p>
             <select name="estado"   class="state" [(ngModel)]="formState">
                 <option  value="Activo">Activo</option>

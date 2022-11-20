@@ -428,10 +428,11 @@ width: 50px;
 }
 .card__user{
     width: 300px;
+    overflow:hidden;
     cursor: pointer;
     margin: 10px;
     margin-bottom: 20px;
-    height: 350px;
+   
     box-shadow: 1px 1px 5px rgb(207, 203, 203);
     border-radius: 10px;
     /* background-color: rgb(249, 244, 244) */
@@ -461,8 +462,8 @@ width: 50px;
 }
  
 .table__fake{
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
 }
 .table__data {
     display: flex;
@@ -512,12 +513,14 @@ width: 50px;
     z-index: 10;
     background-color: rgba(255, 255, 255, 0.938);
 }
+ 
 .option__item{
+    /* width: 60px; */
     margin:0 10px;
     border-radius: 50%;width: 60px;
     display: flex;
     justify-content: center;align-items: center;
-    height: 60px;
+    height: 55px;
     cursor: pointer;
     background-color: rgb(92, 92, 92);
 }
@@ -535,5 +538,5 @@ width: 50px;
     align-items: center;
 }
 .option__item img{
-    width: 40px !important;
+    width: 35px !important;
 }

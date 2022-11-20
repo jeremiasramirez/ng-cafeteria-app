@@ -21,7 +21,7 @@ export class EmployeeComponent implements OnInit {
   public exist__window__add:boolean=false;
   public formName:string = '';
   public formEmail:string = ' ';
-  public formState:string='Activo'
+  public formState:string=''
   public formUserType:string='';
   public formEmployeeCedula:string='';
   public formEditEmployeeCedula:string=''
@@ -29,12 +29,12 @@ export class EmployeeComponent implements OnInit {
   public formEditEmployeeCargo:string=''
   public formEditEmployeeDatepost:string=''
   public formEditEmployeeState:string=''
-  public formEditEmployeeId?:number
+  public formEditEmployeeId?:any
   public formEmployeeTanda:string='';
   public formEmployeeCargo:string='';
   public formEmployeeDatePost:string = new Date().toString().substring(0,16);
   public formPass?:any;
-
+  public isActiveShowEmployee:boolean=false;
  
   public formEditName:string = '';
   public formEditEmail:string = '';
@@ -78,13 +78,9 @@ export class EmployeeComponent implements OnInit {
      this.formEditEmployeeTanda=employe.tanda;
      this.formStateEdit=employe.estado;
      this.formEditEmployeeCargo=employe.cargo;
-    //  console.log(this.formEditEmployeeId );
-    //  console.log( this.formEditEmail );
-    //  console.log(this.formStateEdit);
+    this.formEmployeeDatePost=employe.fechaIngreso;
      console.log(employe);
-     
-     
-
+   
   }
 
   public openAndCloseMenuSelection(){
@@ -106,21 +102,19 @@ export class EmployeeComponent implements OnInit {
      
    
      
-    if(this.formName.length &&  this.formEmployeeCedula.length&&  this.formEmployeeTanda.length &&
-      this.formEmployeeDatePost.length && this.formState.length && this.formEmployeeCargo.length &&
-     this.formEmail.length
-     ){
-      
-      this.serviceEmployee.updateEmployee(this.formEditId, this.formEditName,this.formEditEmail,
-        this.formEditEmployeeCedula,this.formEditEmployeeTanda, this.formEditEmployeeDatepost,
-        this.formEditEmployeeState,this.formEditEmployeeCargo)
+    // if(this.formName.length &&  this.formEmployeeCedula.length&&  this.formEmployeeTanda.length &&
+    //   this.formEmployeeDatePost.length && this.formState.length && this.formEmployeeCargo.length && this.formEmail.length ){
+      if(
+        this.formEditEmployeeId && this.formEditName&& this.formEditEmployeeCedula&&this.formEditEmployeeTanda&&
+        this.formEmployeeDatePost && this.formStateEdit &&
+        this.formEditEmployeeCargo&&this.formEditEmail
+      ){ 
+      this.serviceEmployee.updateEmployee(this.formEditEmployeeId, this.formEditName, this.formEditEmployeeCedula,this.formEditEmployeeTanda,
+        this.formEmployeeDatePost, this.formStateEdit,
+        this.formEditEmployeeCargo,this.formEditEmail)
        .subscribe((user)=>{
-        
         this.getAllEmployees()
-       
         this.exist__window__edit=false
-
-
        })
 
     }
@@ -132,10 +126,25 @@ export class EmployeeComponent implements OnInit {
   }
 
 
+  public deleteEmployee(){
+   
+    
+      
+      this.serviceEmployee.removeEmploye(this.formEditEmployeeId)
+       .subscribe((user)=>{
+        this.existMenuSelection=false
+        this.getAllEmployees();
+       })
+    }
+    
+ 
+
+
 
   public postEmployee(){
     
-   
+    
+    
     if(this.formName.length &&  this.formEmployeeCedula.length&&  this.formEmployeeTanda.length &&
        this.formEmployeeDatePost.length && this.formState.length && this.formEmployeeCargo.length &&
       this.formEmail.length
@@ -150,11 +159,8 @@ export class EmployeeComponent implements OnInit {
        })
 
     }
-    else{
-    
-      this.activatedAndDisableErrorMsj()
-
-      
+    else{ 
+      this.activatedAndDisableErrorMsj() 
     }
   }
   
@@ -165,7 +171,12 @@ export class EmployeeComponent implements OnInit {
     })
   }
 
-
+  public activatedAndDisableSelection(){
+    this.isActiveShowEmployee=true;
+    timer(3).subscribe(()=>{
+      this.existMenuSelection=false
+    })
+  }
 
 
   public getAccountByToken(){
