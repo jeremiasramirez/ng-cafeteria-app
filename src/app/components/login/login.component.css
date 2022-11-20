@@ -1,13 +1,15 @@
 
 .header{
     width: 100%;
-    background-color: rgb(19, 19, 132);
+    background-color: rgb(255, 255, 255);
     margin-bottom: 35px;
     height: 80px;
+   
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     display: flex;
     justify-content: center;
+    box-shadow: 1px 1px 6px grey;
     
     flex-direction: column;
     align-items: center;
@@ -40,7 +42,8 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-   
+ 
+    
  
     
     margin: 0 3px;
@@ -59,7 +62,7 @@
 .title__login h1{
     font-family:   BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
-    color: white;
+    color: #222;;
     margin:0;
 }
 .forms__container{
@@ -106,7 +109,7 @@
     font-size: 14px;
     font-family:      sans-serif;
     font-weight: 600;
-    background-color: blue;
+    background-color: rgb(77, 77, 172);
     
 }
 

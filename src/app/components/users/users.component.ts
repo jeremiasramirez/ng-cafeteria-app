@@ -151,6 +151,7 @@ export class UsersComponent implements OnInit {
     else{
     
       this.isFormValidated='false'
+      this.activatedAndDisableErrorMsj()
       
     }
   }
@@ -195,7 +196,12 @@ export class UsersComponent implements OnInit {
     this.passInfoToUpdateForm(user.id,user.nombre,user.email,user.estado,user.tipoDeUsuario,user.clave);
   }
 
- 
+  public activatedAndDisableErrorMsj(){
+    this.isFormValidated='false'
+    timer(3000).subscribe(()=>{
+      this.isFormValidated='true'
+    })
+  }
 
   public passInfoToUpdateForm(id:any,name:string,email:string,state:string,userType:string,pass:string){
     // this.exist__window__edit=true

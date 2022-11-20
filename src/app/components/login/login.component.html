@@ -9,6 +9,24 @@
     </article>
 </header>
 
+<div class="backdrop__image">
+   
+</div>
+
+<style>
+    .backdrop__image{
+        width: 100%;
+        position: absolute;
+        top:10%;
+        width: 100%;
+        opacity: .1;
+         height: 90vh;
+        background-image: url('../../../assets/imgs/image-from-rawpixel-id-449132-jpeg.jpg');
+       background-repeat: no-repeat;
+       background-size: 100%;
+        z-index: -10;
+    }
+</style>
 
  <!-- login container-->
 <section class="container__login">
@@ -19,7 +37,7 @@
     <div class="container__logo animate">
         <img src="../../../assets/imgs/chocolate.png" alt="logo">
     </div>
-
+    
    
     <!-- forms -->
     <div class="center__login" [hidden]="isLogged">
