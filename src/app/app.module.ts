@@ -15,6 +15,8 @@ import { UsersComponent } from './components/users/users.component';
 import { MenuFloatComponent } from './components/menu-float/menu-float.component'; 
 import { EmployeeComponent } from './components/employee/employee.component';
 import { SalesComponent } from './components/sales/sales.component';
+import { MenusComponent } from './components/menus/menus.component';
+import { RecordComponent } from './components/record/record.component';
  
  
  
@@ -30,7 +32,9 @@ import { SalesComponent } from './components/sales/sales.component';
     MenuFloatComponent ,
  
     EmployeeComponent,
-      SalesComponent
+      SalesComponent,
+      MenusComponent,
+      RecordComponent
   ],
   imports: [
     BrowserModule,

@@ -4,16 +4,16 @@ import { LoginService } from 'src/app/services/login.service';
 import { SesionService } from 'src/app/services/sesion.service';
 
 @Component({
-  selector: 'app-sales',
-  templateUrl: './sales.component.html',
-  styleUrls: ['./sales.component.css'],
+  selector: 'app-menus',
+  templateUrl: './menus.component.html',
+  styleUrls: ['./menus.component.css'],
   providers: [
     SesionService,
     LoginService ,
     AccountService,
   ]
-}) 
-export class SalesComponent implements OnInit {
+})
+export class MenusComponent implements OnInit {
 
   constructor(public session:SesionService,
     public account:AccountService,
@@ -21,7 +21,7 @@ export class SalesComponent implements OnInit {
 
   ngOnInit(): void {
     if(localStorage.getItem("token")?.length){
-      this.session.verifiedSession('sales');
+      this.session.verifiedSession('menus');
       // this.getAllCustomer();
     }else{
       this.session.routeTo("/login");
@@ -43,5 +43,4 @@ export class SalesComponent implements OnInit {
     }) 
 
 }
-
 }

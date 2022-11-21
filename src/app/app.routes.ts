@@ -6,6 +6,8 @@ import { EmployeeComponent } from "./components/employee/employee.component";
 import { HomeComponent } from "./components/home/home.component";
 
 import { LoginComponent } from "./components/login/login.component";
+import { MenusComponent } from "./components/menus/menus.component";
+import { RecordComponent } from "./components/record/record.component";
 import { SalesComponent } from "./components/sales/sales.component";
 import { StartComponent } from "./components/start/start.component";
 import { UsersComponent } from "./components/users/users.component";
@@ -39,6 +41,14 @@ const ROUTEAPP :Routes=[
     {
         path: 'sales',
         component: SalesComponent
+    },
+    {
+        path: 'menus',
+        component: MenusComponent
+    },
+    {
+        path: 'record',
+        component: RecordComponent
     },
     {
         path: '**',

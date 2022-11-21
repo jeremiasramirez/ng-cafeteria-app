@@ -75,7 +75,12 @@ export class HomeComponent{
 
         }) 
     }
-
+    public routeToMenus(){
+        this.sesion.routeTo('menus')
+    }
+    public routeToRecord(){
+        this.sesion.routeTo('record')
+    }
     public routeToSales(){
         this.sesion.routeTo('sales')
     }
