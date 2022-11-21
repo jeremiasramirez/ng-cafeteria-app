@@ -6,6 +6,7 @@ import { EmployeeComponent } from "./components/employee/employee.component";
 import { HomeComponent } from "./components/home/home.component";
 
 import { LoginComponent } from "./components/login/login.component";
+import { SalesComponent } from "./components/sales/sales.component";
 import { StartComponent } from "./components/start/start.component";
 import { UsersComponent } from "./components/users/users.component";
  
@@ -34,6 +35,10 @@ const ROUTEAPP :Routes=[
     {
         path: 'employee',
         component: EmployeeComponent
+    },
+    {
+        path: 'sales',
+        component: SalesComponent
     },
     {
         path: '**',

@@ -76,7 +76,9 @@ export class HomeComponent{
         }) 
     }
 
-    
+    public routeToSales(){
+        this.sesion.routeTo('sales')
+    }
     public routeToCustomers(){
         this.sesion.routeTo('customers')
     }

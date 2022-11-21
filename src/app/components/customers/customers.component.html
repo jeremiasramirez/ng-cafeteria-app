@@ -65,20 +65,19 @@
           
             <table class="table-customers" *ngIf="customers.length>0">
                 <tr class="column-customers" > 
-                    <th class="id">ID</th>
+               
                     <th class="name">NOMBRE</th>
                     <th class="email">EMAIL</th>
-                    <th class="datefrom">REGISTRADO DESDE</th>
+                 
                 </tr>
 
                 
                
                
                 <tr class="row-customer animate" *ngFor="let customer of customers | slice:startPage:nextPage" (click)="getCustomerByClick(customer)">
-                    <td>{{ customer.id }}</td>
+               
                     <td>{{ customer.nombre }}</td>
-                    <td>{{ customer.email }}</td>
-                    <td>{{ customer.fechaRegistro}}</td>
+                    <td>{{ customer.email }}</td> 
                 </tr>
  
             </table>
