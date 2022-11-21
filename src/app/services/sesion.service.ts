@@ -18,15 +18,15 @@ export class SesionService {
    
    public verifiedSession(route:string){
        
-    if(localStorage.length ==0||localStorage.getItem("token")?.toString()==null || localStorage.getItem("token")?.toString()=='0' || localStorage.getItem("token")?.toString()==''){
+    if(localStorage.length == 0||localStorage.getItem("token")?.toString()==null || localStorage.getItem("token")?.toString()=='0' || localStorage.getItem("token")?.toString()==''){
             this.closeSesion();
         }else{
-            if(localStorage.length != 0){
+            if(localStorage.getItem("token")?.length != 0){
                 //aqui se debe verificar si ese token existe en el backend
                 let tokenRegistered:any=localStorage.getItem("token")?.toString();
                 
                 this.loginService.verifyToken(tokenRegistered.toString()).subscribe((e:any)=>{
-            
+                   
                     if(e.response.length==1  ){
                         this.openSesion(route);
                     }
@@ -39,27 +39,28 @@ export class SesionService {
             }
          
         }  
+       
    }
 
    public routeTo(route:string){
         this.router.navigate([`/${route}`])
    }
    public closeSesion(){
-     
-  
-
+    
     let oldtoken:any = localStorage.getItem("token")?.toString();
-
-   
+  
         this.loginService.removeToken('0').subscribe((e)=>{
-        
-            
+         
             localStorage.removeItem("token");
             this.router.navigate(['/login']);
             
+          
+            
         })
+      
+        
+  
    
-    
 
     }
 

@@ -52,11 +52,14 @@ h1{
     align-items: center;
     position: absolute;
     top:4%;
-    border-radius: 50%;
+    border-radius: 16px;
     margin-left: 10px;
-
+    transition: .3s;
     background-color: rgb(192, 42, 42);
     cursor: pointer;
+}
+.add__new__client__button:hover{
+    background-color: rgb(171, 52, 52);
 }
 .add__new__client__button img{
     width: 40px;

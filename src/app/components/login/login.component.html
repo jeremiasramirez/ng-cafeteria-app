@@ -9,60 +9,67 @@
     </article>
 </header>
 
-<div class="backdrop__image">
-   
-</div>
+<div class="backdrop__image "> </div>
 
 <style>
     .backdrop__image{
         width: 100%;
         position: absolute;
-        top:10%;
-        width: 100%;
-        opacity: .1;
-         height: 90vh;
+        top:0;
+        
+       
+       
+        opacity: .4;
+         height: 100vh;
         background-image: url('../../../assets/imgs/image-from-rawpixel-id-449132-jpeg.jpg');
        background-repeat: no-repeat;
-       background-size: 100%;
+       background-size: 100% 100vh;
         z-index: -10;
+        transition: 1s;
+        background-position: top bottom;
+        
     }
+    
+ 
 </style>
 
  <!-- login container-->
 <section class="container__login">
 
+  
+        <div class="message-error animate" *ngIf="isLogged==false">Usuario o contraseña incorrecto</div>
+        <!-- logo -->
+        <div class="container__logo animate">
+            <img src="../../../assets/imgs/chocolate.png" alt="logo">
+        </div>
+        
+      <article class="wrap__login">
 
-    <div class="message-error animate" *ngIf="isLogged==false">Usuario o contraseña incorrecto</div>
-    <!-- logo -->
-    <div class="container__logo animate">
-        <img src="../../../assets/imgs/chocolate.png" alt="logo">
-    </div>
+        <!-- forms -->
+        <div class="center__login" [hidden]="isLogged">
     
+            <article class="forms__container">
+
+                <input [disabled]="!isFormEnabled" type="email" placeholder="Email" [(ngModel)]="user">
+                <input [disabled]="!isFormEnabled"  type="password" placeholder="Password" [(ngModel)]="password">
+
+            </article>
+
+            <article class="keep-session">
+                <input disabled  checked  type="checkbox" placeholder="Keep alive sesion"><strong>Mantener sesion abierta</strong>
+            </article>
+
+            <article class="buttons__container">
+
+                <button [disabled]="!isFormEnabled"  class="login"  (click)="getUser()">Sign in</button>
+                
+        </article>
    
-    <!-- forms -->
-    <div class="center__login" [hidden]="isLogged">
- 
-        <article class="forms__container">
-
-            <input [disabled]="!isFormEnabled" type="email" placeholder="Email" [(ngModel)]="user">
-            <input [disabled]="!isFormEnabled"  type="password" placeholder="Password" [(ngModel)]="password">
-
-        </article>
-
-        <article class="keep-session">
-            <input disabled  checked  type="checkbox" placeholder="Keep alive sesion"><strong>Mantener sesion abierta</strong>
-        </article>
-
-        <article class="buttons__container">
-
-            <button [disabled]="!isFormEnabled"  class="login"  (click)="getUser()">Sign in</button>
-            
-        </article>
     </div>
- 
+</article>
     <div class="container__circle__loading animate"  *ngIf="isLogged">
         <img src="../../../assets/imgs/loadingxx.gif" alt="">
     </div>
-  
+
 </section>
  

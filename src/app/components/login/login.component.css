@@ -66,7 +66,8 @@
     margin:0;
 }
 .forms__container{
-    margin-top: 10px; background-color: rgb(243, 232, 232);
+    margin-top: 10px; 
+    /* background-color: rgb(243, 232, 232); */
     display: flex;
     border-radius: 5px;
     padding: 0 10px;
@@ -123,4 +124,8 @@
     width:400px;
     
 }
- 
+.wrap__login{
+    background-color: rgba(231, 220, 220, 0.767);
+    padding: 6px;
+    border-radius: 10px;
+}

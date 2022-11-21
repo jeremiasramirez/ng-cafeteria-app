@@ -40,6 +40,9 @@ export class StartComponent   {
       if(this.currentImage<lenImgs){
         this.currentImage+=1
       }
+      else{
+        this.currentImage=0
+      }
     
    }
 
@@ -48,6 +51,9 @@ export class StartComponent   {
     let lenImgs = this.images.length-1;
       if(this.currentImage>0){
         this.currentImage-=1
+      }
+      else{
+        this.currentImage=lenImgs
       }
     
    }

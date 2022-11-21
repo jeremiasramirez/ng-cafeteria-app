@@ -58,11 +58,14 @@ export class EmployeeComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-    this.sessionServices.verifiedSession('employee');
-    this.getAccountByToken();
-    this.getAllEmployees()
-  
+    if(localStorage.getItem("token")?.length){
+      this.sessionServices.verifiedSession('employee');
+      this.getAccountByToken();
+      this.getAllEmployees()
+    }
+    else{
+      this.sessionServices.routeTo("/login")
+    }
   }
 
   public passInfoToUpdateForm(employe:EmployeesI){

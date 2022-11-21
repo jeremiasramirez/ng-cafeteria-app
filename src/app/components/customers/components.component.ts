@@ -44,12 +44,14 @@ export class CustomersComponent implements OnInit {
     public customers:customerI[] = [];
     
   ngOnInit (): void {
-
-
-    this.sessionServices.verifiedSession('customers');
-    this.getAllCustomer();
- 
-
+   
+    if(localStorage.getItem("token")?.length){
+      this.sessionServices.verifiedSession('customers');
+      this.getAllCustomer();
+    }else{
+      this.sessionServices.routeTo("/login");
+    }
+    
   }
 
   public getAllCustomer(){

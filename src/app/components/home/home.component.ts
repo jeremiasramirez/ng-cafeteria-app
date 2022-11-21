@@ -39,8 +39,15 @@ export class HomeComponent{
 
 
     ngOnInit(){
-      this.sesion.verifiedSession('home');
-      this.getAccountByToken();
+     
+            if(localStorage.getItem("token")?.length){
+                this.sesion.verifiedSession('home');
+                this.getAccountByToken();
+            }
+            else{
+                this.sesion.routeTo("/login")
+            }
+       
       
     }
     

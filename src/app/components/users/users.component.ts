@@ -61,11 +61,16 @@ export class UsersComponent implements OnInit {
 
     
   ngOnInit (): void {
-    this.sessionServices.verifiedSession('users');
-    this.getAccountByToken();
-    this.getAllUsers()
+   if(localStorage.getItem("token")?.length){
+      this.sessionServices.verifiedSession('users');
+      this.getAccountByToken();
+      this.getAllUsers()
 
-    this.changeAllEmployeesInSelectCall();
+      this.changeAllEmployeesInSelectCall();
+   }
+   else{
+    this.sessionServices.routeTo("/login")
+   }
   }
 
   public addFromEmployee(){

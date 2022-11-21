@@ -21,11 +21,16 @@ export class LoginComponent{
     public password:string = '';
     public isFormEnabled:boolean=true;
     public isLogged:any;
-    public isLoadingMenu:boolean =true;
+    public isLoadingMenu:boolean =false;
       
     ngOnInit(){
-        this.sesionService.verifiedSession('home');
-        this.openAndCloseCircleLoadingMenu();
+        if(localStorage.getItem("token")?.length){
+            this.sesionService.verifiedSession('home');
+            this.openAndCloseCircleLoadingMenu();
+        }
+        else{
+            this.sesionService.routeTo("/login")
+        }
      }
     constructor(
         public sesionService:SesionService,
