@@ -75,6 +75,10 @@ export class HomeComponent{
 
         }) 
     }
+
+    public routeToHome(){
+        this.sesion.routeTo('/')
+    }
     public routeToMenus(){
         this.sesion.routeTo('menus')
     }

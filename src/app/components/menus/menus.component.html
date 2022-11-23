@@ -1,19 +1,171 @@
-<section class='container-menu-home'>
-
-    <div class="logo-menu animate" >
-      
-        <img src="../../../assets/imgs/icons/menu_book_black_24dp.svg" alt="logo">
-    </div>
-
  
-
-    <article class="title-menu-home">
-        <h1 class="animate-fade-up">Gestión de menú</h1>
-    </article>
-
-   
-</section>
-
+<br>
 <!-- menu floating -->
 <app-menu-float></app-menu-float>
+ <br>
+
+
+ <!-- all category -->
+<section class="categories__container">
+
+    <article class="category" *ngFor="let category of allCategory"  >
+        <div class="title"><h1>{{category.nombre}}</h1></div>
+        <div class="search" >
+            <input type="search" placeholder="Search">
+        </div>
+        <div class="row__articles">
+            <h1>Cappuchino</h1>
+            <p>{{140|currency}}</p>
+        </div>
+
+        <div class="row__articles">
+            <h1>Cappuchino</h1>
+            <p>{{140|currency}}</p>
+        </div>
+
+        <div class="row__articles">
+            <h1>Cappuchino</h1>
+            <p>{{140|currency}}</p>
+        </div>
+
+        <div class="row__articles">
+            <h1>Cappuchino</h1>
+            <p>{{140|currency}}</p>
+        </div>
+    </article>
+
+</section>
+
+<!-- new category -->
+<section class="container__add__article__buttons" *ngIf="existsSelectionActions==true">
+    <article class="buttons__add">
+       
+        <div class="button">
+            <img src="../../../assets/imgs/icons/category_white_24dp.svg" alt="add">
+            <p>Categoria</p>
+        </div>
+
+        <div class="button">
+            <img src="../../../assets/imgs/icons/lunch_dining_white_24dp.svg" alt="add">
+            <p>Plato</p>
+        </div>
+
+        <div class="button close_red" (click)="existsSelectionActions=false">
+            <img src="../../../assets/imgs/icons/clear_white_18dp.svg" alt="add"> 
+        </div>
+    </article>
+</section>
+
+<!-- new button -->
  
+    <article class="buttons__add_menus">
+       
+        <div class="button white__add" (click)="existsSelectionActions=true">
+            <img src="../../../assets/imgs/icons/add.svg" alt="add"> 
+        </div>
+ 
+    </article>
+ 
+
+<style>
+    
+    /* add category button */
+    .container__add__article__buttons{
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        top:0;
+        
+        bottom:0;
+        left:0;
+        z-index: 10;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.945);
+    }
+  
+    .buttons__add{
+        
+        width: 180px;
+       
+        position: absolute;
+        bottom:2%;
+        right: 0;
+        /* background-color: blue; */
+        display: flex;  
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 8px;
+    }
+    .buttons__add_menus{
+        width: 180px;
+        
+        position: fixed;
+        bottom:2%;
+        right: 0;
+        /* background-color: blue; */
+        display: flex;  
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 8px;
+    }
+    .button{
+        width: 90px;
+        display: flex;  
+        margin-top: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        height: 90px;
+        background-color: rgb(15, 15, 166);
+        border-radius: 50%;
+        font-size: 13px;
+        transition: .5s;
+        animation: spiraldown .2s linear;
+    }
+    @keyframes spiraldown {
+        from{
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .button:hover{
+        background-color: rgb(7, 7, 224);
+    }
+    .button p{
+        color:white;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+    .button img{
+        width: 30px;
+    }
+   .close_red{
+    background-color: rgba(209, 38, 38, 0.804);
+  
+   
+   }
+   .close_red:hover{
+    background-color: rgba(168, 22, 22, 0.886);
+   }
+
+   .white__add{
+   
+    background-color: blue;
+    width: 70px;
+    height: 70px;
+   }
+   .white__add:hover{
+    
+    background-color: rgb(14, 14, 181);
+   }
+</style>

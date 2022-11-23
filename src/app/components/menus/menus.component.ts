@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 import { LoginService } from 'src/app/services/login.service';
+import { MenusService } from 'src/app/services/menus.service';
 import { SesionService } from 'src/app/services/sesion.service';
 
 @Component({
@@ -11,22 +12,45 @@ import { SesionService } from 'src/app/services/sesion.service';
     SesionService,
     LoginService ,
     AccountService,
+    MenusService
   ]
 })
 export class MenusComponent implements OnInit {
 
-  constructor(public session:SesionService,
+  public allCategory:categoryI[] = [];
+  public existsSelectionActions:boolean=false;
+
+
+  constructor(
+    public menus:MenusService,
+    public session:SesionService,
     public account:AccountService,
     public login:LoginService) { }
 
   ngOnInit(): void {
     if(localStorage.getItem("token")?.length){
       this.session.verifiedSession('menus');
-      // this.getAllCustomer();
+      this.getAllCategory();
     }else{
       this.session.routeTo("/login");
     }
   }
+
+  //all category
+
+  public getAllCategory(){
+    this.menus.getAllCategories()
+    .subscribe((category)=>{
+
+      console.log(category.response);
+      this.allCategory=category.response;  
+  
+    });
+  }
+
+
+
+
 
   public getAccountByToken(){
         
@@ -43,4 +67,13 @@ export class MenusComponent implements OnInit {
     }) 
 
 }
+}
+
+
+
+
+
+interface categoryI{
+  id:number;
+  nombre:string;
 }
