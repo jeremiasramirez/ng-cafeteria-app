@@ -18,6 +18,7 @@ import { SesionService } from 'src/app/services/sesion.service';
 export class MenusComponent implements OnInit {
 
   public allCategory:categoryI[] = [];
+  public allArticles:articlesI[] = []
   public existsSelectionActions:boolean=false;
 
 
@@ -31,13 +32,13 @@ export class MenusComponent implements OnInit {
     if(localStorage.getItem("token")?.length){
       this.session.verifiedSession('menus');
       this.getAllCategory();
+      this.getAllArticles()
     }else{
       this.session.routeTo("/login");
     }
   }
 
   //all category
-
   public getAllCategory(){
     this.menus.getAllCategories()
     .subscribe((category)=>{
@@ -48,10 +49,19 @@ export class MenusComponent implements OnInit {
     });
   }
 
+  
+  //all articles
+  public getAllArticles(){
+    this.menus.getAllArticles()
+    .subscribe((article)=>{
 
+      console.log(article.response);
+      this.allArticles=article.response;  
+  
+    });
+  }
 
-
-
+ 
   public getAccountByToken(){
         
     let token:any=localStorage.getItem("token")?.toString();
@@ -76,4 +86,12 @@ export class MenusComponent implements OnInit {
 interface categoryI{
   id:number;
   nombre:string;
+}
+
+interface articlesI{
+  cantidad:number;
+  id:number;
+  idCategoria:number;
+  nombre:string;
+  precio:number;
 }

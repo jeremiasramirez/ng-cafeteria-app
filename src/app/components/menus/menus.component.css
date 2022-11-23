@@ -62,7 +62,7 @@ h1{
 
 .categories__container{
     display: flex;  
-    margin-top: 15px;
+    margin-top: 30px;
   justify-content: center;
     align-items: center;
     flex-wrap: wrap;  
@@ -116,6 +116,8 @@ h1{
     padding-top: 5px;
     border-radius: 7px;
     padding-bottom: 5px;
+    width: 90px;
+    text-align: center;
     background-color: rgb(110, 109, 112);
 }
 .row__articles h1{
@@ -125,3 +127,103 @@ h1{
  
 }
 
+
+ /* add category button */
+ .container__add__article__buttons{
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top:0;
+    
+    bottom:0;
+    left:0;
+    z-index: 10;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.945);
+}
+
+.buttons__add{
+    
+    width: 180px;
+   
+    position: absolute;
+    bottom:2%;
+    right: 0;
+    /* background-color: blue; */
+    display: flex;  
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8px;
+}
+.buttons__add_menus{
+    width: 180px;
+    
+    position: fixed;
+    bottom:2%;
+    right: 0;
+    /* background-color: blue; */
+    display: flex;  
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8px;
+}
+.button{
+    width: 90px;
+    display: flex;  
+    margin-top: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    height: 90px;
+    background-color: rgb(15, 15, 166);
+    border-radius: 50%;
+    font-size: 13px;
+    transition: .5s;
+    animation: spiraldown .2s linear;
+}
+@keyframes spiraldown {
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.button:hover{
+    background-color: rgb(7, 7, 224);
+}
+.button p{
+    color:white;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.button img{
+    width: 30px;
+}
+.close_red{
+background-color: rgba(209, 38, 38, 0.804);
+
+
+}
+.close_red:hover{
+background-color: rgba(168, 22, 22, 0.886);
+}
+
+.white__add{
+
+background-color: blue;
+width: 70px;
+height: 70px;
+}
+.white__add:hover{
+
+background-color: rgb(14, 14, 181);
+}

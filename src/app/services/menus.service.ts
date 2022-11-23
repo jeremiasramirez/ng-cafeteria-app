@@ -12,6 +12,10 @@ export class MenusService {
       return ajax.get(`https://localhost:7279/menus/allcategory`)
    }
 
+   public getAllArticles(){
+      return ajax.get(`https://localhost:7279/menus/allarticle`)
+   }
+
    public postCategory(name:string ){ 
        return ajax.post(`https://localhost:7279/menus/newcategory?name=${name}`)
    }
