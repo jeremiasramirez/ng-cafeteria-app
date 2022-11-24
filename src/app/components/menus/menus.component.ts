@@ -21,9 +21,11 @@ export class MenusComponent implements OnInit {
   public exists_window_addcategory:boolean=false;
   public allArticles:articlesI[] = []
   public existsSelectionActions:boolean=false;
-  public exist__window__add__plate:boolean=true;
+  public exist__window__add__plate:boolean=false;
   public categoryDataInput:any;
-
+  public articleSelected:any='Seleccione una categoria';
+  public plateSelected:string='';
+  public platePriceSelected?:number;
   constructor(
     public menus:MenusService,
     public session:SesionService,
@@ -40,7 +42,31 @@ export class MenusComponent implements OnInit {
     }
   }
 
+  public addNewPlate(){
   
+    
+    if(this.articleSelected && this.plateSelected != '' && this.platePriceSelected){
+      
+      this.menus.postPlate(this.plateSelected, 200,this.platePriceSelected, this.articleSelected)
+       .subscribe(( )=>{  
+        // this.getAllCategory()
+        // this.categoryDataInput=''
+        this.exist__window__add__plate=false
+        this.getAllArticles();
+        
+       })
+
+    }
+    else{
+    
+      // this.isFormValidated='false'
+      // this.activatedAndDisableErrorMsj()
+      
+    }
+  }
+
+ 
+
   //open add category window and close options
   public openAndCloseSelectionForCategory(){
      this.exists_window_addcategory=true;
@@ -59,7 +85,7 @@ export class MenusComponent implements OnInit {
     this.menus.getAllCategories()
     .subscribe((category)=>{
 
-      console.log(category.response);
+      // console.log(category.response);
       this.allCategory=category.response;  
   
     });
@@ -85,8 +111,17 @@ export class MenusComponent implements OnInit {
       
     }
   }
+//search catalog
+  public searchUser(data:string){
+    let filtered=this.allArticles.filter((element)=>{
+      return element.nombre.toLowerCase().includes(data);
+    })
 
-
+    if(filtered.length==0 || data.length==0) this.getAllArticles();
+    this.allArticles=filtered;
+    
+    
+  }
   
   
   //all articles
@@ -94,7 +129,7 @@ export class MenusComponent implements OnInit {
     this.menus.getAllArticles()
     .subscribe((article)=>{
 
-      console.log(article.response);
+      // console.log(article.response);
       this.allArticles=article.response;  
   
     });
