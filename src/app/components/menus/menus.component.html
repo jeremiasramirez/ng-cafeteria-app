@@ -4,7 +4,9 @@
 <app-menu-float></app-menu-float>
  <br>
 
-
+<div>
+    <h1 class="title menu-title">Menú</h1>
+</div>
  <!-- all category -->
 <section class="categories__container">
 
@@ -31,12 +33,12 @@
 <section class="container__add__article__buttons" *ngIf="existsSelectionActions==true">
     <article class="buttons__add">
        
-        <div class="button">
+        <div class="button" (click)="openAndCloseSelectionForCategory()">
             <img src="../../../assets/imgs/icons/category_white_24dp.svg" alt="add">
             <p>Categoria</p>
         </div>
 
-        <div class="button">
+        <div class="button" (click)="openAndCloseSelectionForPlate()">
             <img src="../../../assets/imgs/icons/lunch_dining_white_24dp.svg" alt="add">
             <p>Plato</p>
         </div>
@@ -58,7 +60,108 @@
     </article>
  
 
+
+
+    <!-- window new category -->
+<section class="container__window__newcategory"  *ngIf="exists_window_addcategory" >
+    <article class="container__items animate">
+      
+        <input type="text" [(ngModel)]="categoryDataInput" placeholder="Categoria nueva"  >
+        <button (click)="postCategory()">Nueva</button>
+        <button class="cancel__window__categorybutton" (click)="exists_window_addcategory=false">Cancel</button>
+    </article>
+</section>
+
+
+<!-- new plate -->
+<section class="container__window__new__plate" *ngIf="exist__window__add__plate">
+    <article class="container__items__window__new__plate animate">
+        <div>
+            <h1>Nuevo plato</h1>
+        </div>
+ 
+        <input list="brow" class="state" >
+        <datalist id="brow" >
+            <option *ngFor="let article_ of allCategory" [value]="article_.nombre" >
+        </datalist> 
+
+        <input type="text" placeholder="Plato nuevo"  >
+        <button  class="">Nuevo</button>
+        <button class="cancel__window__newplatebutton" (click)="exist__window__add__plate=false">Cancel</button>
+    </article>
+</section>
+
+
+<!-- 
+<input list="brow" class="state" [(ngModel)]="formEditEmployeeCargo">
+<datalist id="brow">
+<option value="Empleados de cocina">
+<option value="Mesero">
+<option value="Servicio al cliente">
+<option value="Gerente de ventas">
+<option value="Gerente">
+<option value="Jefe de recursos humanos"></option>
+</datalist>   -->
 <style>
-    
+   .container__window__new__plate{
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    bottom:0;
+    left:0;
+    right: 0;
+    background-color: rgba(23, 22, 22, 0.881);
+   }
    
+   .container__items__window__new__plate{
+    width: 410px;
+    background-color: rgba(45, 43, 43, 0.929);
+    border-radius: 10px;
+    padding: 6px
+   }
+   
+   .container__items__window__new__plate input{
+    width: 95%;
+    padding: 20px 8px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: #eee;
+    display: block;
+   }
+  .container__items__window__new__plate button{
+    width: 250px;
+    border-radius: 4px;
+    padding: 10px 0;
+    margin-top: 8px;
+    background-color: rgb(75, 75, 239);
+    border:none;
+    cursor: pointer;
+    color:white;
+    font-size:16px;
+  }
+   .cancel__window__newplatebutton{
+    width: 250px;
+    border-radius: 4px;
+    padding: 10px 0;
+    margin-top: 8px;
+    background-color: transparent !important;
+    border:none;
+    cursor: pointer;
+    color:rgba(255, 255, 255, 0.674);
+    font-size:16px;
+}
+
+.container__items__window__new__plate h1{
+    margin: 18px;
+    width: 97%;
+    color:white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
 </style>

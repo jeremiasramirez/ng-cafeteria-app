@@ -18,9 +18,11 @@ import { SesionService } from 'src/app/services/sesion.service';
 export class MenusComponent implements OnInit {
 
   public allCategory:categoryI[] = [];
+  public exists_window_addcategory:boolean=false;
   public allArticles:articlesI[] = []
   public existsSelectionActions:boolean=false;
-
+  public exist__window__add__plate:boolean=true;
+  public categoryDataInput:any;
 
   constructor(
     public menus:MenusService,
@@ -38,6 +40,20 @@ export class MenusComponent implements OnInit {
     }
   }
 
+  
+  //open add category window and close options
+  public openAndCloseSelectionForCategory(){
+     this.exists_window_addcategory=true;
+     this.existsSelectionActions=false
+  }
+
+
+   //open add plate window and close options
+   public openAndCloseSelectionForPlate(){
+    this.exist__window__add__plate=true;
+    this.existsSelectionActions=false
+ }
+
   //all category
   public getAllCategory(){
     this.menus.getAllCategories()
@@ -49,6 +65,29 @@ export class MenusComponent implements OnInit {
     });
   }
 
+  // post category
+  public postCategory(){
+    
+    if(this.categoryDataInput != '' && this.categoryDataInput != null ){
+      
+      this.menus.postCategory(this.categoryDataInput)
+       .subscribe(( )=>{  
+        this.getAllCategory()
+        this.categoryDataInput=''
+        this.exists_window_addcategory=false;
+       })
+
+    }
+    else{
+    
+      // this.isFormValidated='false'
+      // this.activatedAndDisableErrorMsj()
+      
+    }
+  }
+
+
+  
   
   //all articles
   public getAllArticles(){
