@@ -73,8 +73,13 @@ export class CustomersComponent implements OnInit {
       this.clientsService.setClientes(this.formName,this.formEmail,this.dateStart)
       .subscribe((posted)=>{
         this.getAllCustomer();
+        localStorage.setItem("nameclient",this.formName)
         this.resetForm()
         this.existWindowAddClient=false
+       
+        timer(100).subscribe(()=>{
+          this.sessionServices.routeTo('sales')
+        })
       });
 
     }else{

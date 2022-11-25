@@ -3,6 +3,7 @@ h1{
     padding:0;
     color:#222;
     margin-top: 5px;
+    font-size: 19px;
 }
 .logo-menu {
     text-align: center;
@@ -15,27 +16,8 @@ h1{
     height: 55px;
     
 }
-.add__new__client__button{
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top:3%;
-    border-radius: 16px;
-    margin-left: 10px;
-
-    background-color: rgb(189, 189, 200);
-    transition: .3s;
-    cursor: pointer;
-}
-.add__new__client__button:hover{
-    background-color: #ddd;
-}
-.add__new__client__button img{
-    width: 40px;
-}
+ 
+ 
 .container-menu-home{
     background-color: white;
     box-shadow: 1px 1px 6px grey;
@@ -54,4 +36,102 @@ h1{
     margin-top: 0px;
     color: whitesmoke;
     font-family:    'Lucida Sans', Arial, sans-serif;
+}
+.state{
+    width: 350px;
+    border:none;
+    cursor: pointer;
+    margin: 2px 0;
+    padding-left:  11px;
+    padding-right:  11px;
+    outline: none;
+     
+    height: 40px;
+    border-radius: 10px;
+}
+ 
+/* container select sales */
+.container__sales__component{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+
+}
+.component__select__title h1{
+    color:black !important;
+    padding: 10px 0;
+}
+.component__select__client{
+    width: 500px;
+    text-align: center;
+    margin:10px;
+    height: 370px;
+    border-radius: 10px;
+
+    padding:5px 20px;
+   
+    background-color: rgb(240, 240, 240);
+}
+ 
+
+.facturacion{
+    background-color: white;
+    box-shadow:  1px 1px 5px grey;
+}
+
+.container__increment{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.animatefactura{
+    animation: fadeanimatecategory .3s ease-in-out;
+   }
+   @keyframes fadeanimatecategory {
+        from{
+            opacity: 0;
+            transform: scale(.9) ;
+        }
+        to{
+            opacity: 1;
+            transform: scale(1) ;
+        }
+   }
+
+
+   .row__articles{
+    display: flex;
+    
+
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+   
+    padding: 0 8px;
+    margin-top: 5px;
+   border-bottom: 1px solid rgba(186, 183, 183, 0.806);
+    margin-bottom: 3px;
+    /* background-color: whitesmoke); */
+  
+}
+
+.row__articles p{
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 5px;
+    border-radius: 7px;
+    padding-bottom: 5px;
+    min-width: 100px;
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: rgb(114, 71, 200);
+}
+.row__articles h1{
+    color: #333;
+    font-size:18px;
+    font-weight: 500;
+ 
 }

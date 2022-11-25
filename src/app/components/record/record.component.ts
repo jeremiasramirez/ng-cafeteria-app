@@ -6,7 +6,8 @@ import { SesionService } from 'src/app/services/sesion.service';
 @Component({
   selector: 'app-record',
   templateUrl: './record.component.html',
-  styleUrls: ['./record.component.css'],
+  styleUrls: ['./record.component.css'], 
+
   providers: [
     SesionService,
     LoginService ,

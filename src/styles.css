@@ -92,6 +92,23 @@ html,body{
   }
 }
 
+
+
+.animate-entry{
+  animation: animsentry .4s ease-in;
+  transition: 1s;
+}
+@keyframes animsentry {
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
+  }
+}
+
+
+
 .animate-fade-up{
   animation: animsup .2s linear;
   transition: 1s;

@@ -5,15 +5,129 @@
         <img src="../../../assets/imgs/icons/add_shopping_cart_black_24dp.svg" alt="logo">
     </div>
 
- 
-
+  
     <article class="title-menu-home">
         <h1 class="animate-fade-up">Realizar ventas</h1>
     </article>
 
    
 </section>
-
+<br>
 <!-- menu floating -->
 <app-menu-float></app-menu-float>
+
+
+
+<section class="container__sales__component animate-entry">
+
+    <article class="component__select__client  ">
+        <div class="component__select__title"><h1>Seleccione un cliente</h1></div>
+        
+        <div class="container__inputs">
+           
+            <select class="state" aria-label=".form-select-lg example" [(ngModel)]="clientSelected">
+                
+                <option [value]="clientSelected">{{clientSelected}}</option>
+                <option value="Jeremias">Jeremias</option>
+
+                <option value="Pedro">Pedro</option>
+               
+              </select> 
+            <br>
+            <br>
+            <div class="component__select__title"><h1>Seleccione un producto</h1></div>
+        
+            <select class="state" aria-label=".form-select-lg example" [(ngModel)]="productSelected">
+               
+               
+                <option value="Empanada jamon y queso">Empanada jamon y queso</option>
+                <option value="Cerveza mediana">Cerveza mediana</option>
+               
+              </select>
+            
+              <br>
+              <br>
+              <br>
+              <div class="component__select__title"><h1>Cantidad</h1></div>
+           
+
+              <div class="container__increment">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end container__increment">
+                    <button class="btn btn-primary me-md-2" type="button" (click)="decrementCuantity()"> 
+
+                        <img src="../../../assets/imgs/icons/remove_white_24dp.svg" alt="">
+                    </button>
+                    
+                    <span class="cuantity">{{cuantity}}</span>
+                    <button class="btn btn-primary me-md-2" type="button" (click)="incrementCuantity()"> 
+                        <img src="../../../assets/imgs/icons/add_white_24dp.svg" alt="">
+                    </button>
+                 </div>
+              </div>
+        </div>
+    </article>
+
+
+    <!-- facturacion component -->
+    <article class="component__select__client facturacion">
+        <div class="component__select__title"><h1>Facturación</h1></div>
+        
+        <div class="container__logo__facturation">
+            <img src="https://cdn.dribbble.com/users/1171888/screenshots/6121432/qd-loader_1.gif" alt="">
+        </div>
+        
+        <div class="row__articles"    >
+            <h1>PRODUCTO</h1>
+            <p>{{'Cerveza mediana'}}</p>
+        </div>
+
+        <div class="row__articles"    >
+            <h1>CANTIDAD</h1>
+            <p>{{cuantity}}</p>
+        </div>
+
+        <div class="row__articles"    >
+            <h1>SUBTOTAL</h1>
+            <p>{{2300|currency}}</p>
+        </div>
+        <br>
+        <div class="d-grid gap-2 col-8 mx-auto">
+            <button type="button" class="btn btn-primary btn-md">Facturar</button>
+        </div>
+    </article>
+
+</section>
+
+<style>
+  
+
+   .cuantity{
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    font-weight: 600;
+    margin-left: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+   }
+
+   .container__logo__facturation{
  
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 123px;
+   
+   }
+   .container__logo__facturation img{
+    width: 200px;
+   }
+</style>
+ 
+
+
+
+

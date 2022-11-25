@@ -43,6 +43,10 @@ const ROUTEAPP :Routes=[
         component: SalesComponent
     },
     {
+        path: 'sales/:id',
+        component: SalesComponent
+    },
+    {
         path: 'menus',
         component: MenusComponent
     },
