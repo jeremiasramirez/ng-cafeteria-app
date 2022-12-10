@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
+import { FacturationService } from 'src/app/services/facturacion.service';
 import { LoginService } from 'src/app/services/login.service';
 import { SesionService } from 'src/app/services/sesion.service';
-
+import { read, utils, writeFile } from 'xlsx';
 @Component({
   selector: 'app-record',
   templateUrl: './record.component.html',
@@ -12,23 +13,51 @@ import { SesionService } from 'src/app/services/sesion.service';
     SesionService,
     LoginService ,
     AccountService,
+    FacturationService
   ]
 })
 export class RecordComponent implements OnInit {
 
+  public records:any[]=[];
 
-  constructor(public session:SesionService,
+  constructor(
+    public facturation:FacturationService,
+    public session:SesionService,
     public account:AccountService,
-    public login:LoginService) { }
+    public login:LoginService) { 
+
+
+    
+    }
+
+
 
   ngOnInit(): void {
     if(localStorage.getItem("token")?.length){
       this.session.verifiedSession('record');
-      // this.getAllCustomer();
+      this.getAllFacturation();
     }else{
       this.session.routeTo("/login");
     }
   }
+
+  public getAllFacturation(){
+
+    this.facturation.getAllFacturations().subscribe((fact)=>{
+      this.records=fact.response;
+      console.log(this.records);
+      
+    });
+
+
+  }
+  public completed(id:number,status:string){
+    this.facturation.updateFaturation(id,status).subscribe((ok)=>{
+      this.getAllFacturation();
+      
+    })
+  }
+
 
   public getAccountByToken(){
         
@@ -46,4 +75,12 @@ export class RecordComponent implements OnInit {
 
 }
 
+}
+interface RecordI {
+  Nombre: string;
+  Producto: string;
+  Cantidad: string;
+  Estado: string;
+  Subtotal: string;
+  Total: string;
 }

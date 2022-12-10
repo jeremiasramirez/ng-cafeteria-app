@@ -34,19 +34,18 @@
                
               </select> 
             <br>
-            <br>
+            
             <div class="component__select__title"><h1>Seleccione un producto</h1></div>
-        
-            <select class="state" aria-label=".form-select-lg example" [(ngModel)]="productSelected">
-               
-               
-                <option value="Empanada jamon y queso">Empanada jamon y queso</option>
-                <option value="Cerveza mediana">Cerveza mediana</option>
+            <div class="search__product__select">
+                <input type="search" #data (keyup)="searchArticle(data.value)" class="state" placeholder="Buscar un producto del menu"> 
+            </div>
+            <select  class="form-select select__modify" size="3" multiple [(ngModel)]="productSelected" >
+                
+                <option *ngFor="let item of allArticlesFromMenu" (click)="calculatePrice(item.precio,cuantity)"  [value]="item.nombre">{{item.nombre}}</option>
                
               </select>
+
             
-              <br>
-              <br>
               <br>
               <div class="component__select__title"><h1>Cantidad</h1></div>
            
@@ -78,7 +77,7 @@
         
         <div class="row__articles"    >
             <h1>PRODUCTO</h1>
-            <p>{{'Cerveza mediana'}}</p>
+            <p>{{productSelected}}</p>
         </div>
 
         <div class="row__articles"    >
@@ -88,46 +87,32 @@
 
         <div class="row__articles"    >
             <h1>SUBTOTAL</h1>
-            <p>{{2300|currency}}</p>
+            <p>{{subtotal * cuantity|currency}}</p>
         </div>
         <br>
         <div class="d-grid gap-2 col-8 mx-auto">
-            <button type="button" class="btn btn-primary btn-md">Facturar</button>
+            <button type="button" class="btn btn-primary btn-md" (click)="setNewSale()">Facturar</button>
         </div>
     </article>
 
 </section>
 
+<section class="loading__sales" *ngIf="existLoading">
+    <img src="../../../assets/imgs/savingshop.gif" alt="gif">
+</section>
+ 
 <style>
-  
-
-   .cuantity{
-    background-color: white;
-    border-radius: 50%;
-    width: 30px;
-    font-weight: 600;
-    margin-left: 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-   }
-
-   .container__logo__facturation{
- 
+    .loading__sales{
+        position: absolute;
+        top:0;
+        background-color: white;
         display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 123px;
-   
-   }
-   .container__logo__facturation img{
-    width: 200px;
-   }
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
 </style>
- 
-
 
 
 

@@ -31,14 +31,14 @@
         
     <section class="menu"  >
             
-        <article class="menu__item " (click)="routeToCustomers()">
+        <article class="menu__item " (click)="routeToCustomers()" >
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/group_add_white_24dp.svg" alt="logo">
             </div>
             <p class="menu-animation-in">Clientes</p>
         </article>
 
-        <article class="menu__item  " (click)="routeToMenus()">
+        <article class="menu__item  " (click)="routeToMenus()" >
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/menu.png" alt="logo">
             </div>
@@ -52,22 +52,23 @@
             <p>Realizar ventas</p>
         </article>
 
-
-        <article class="menu__item" (click)="routeToEmployee()">
+      
+   
+        <article  class="menu__item" (click)="routeToEmployee()" >
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/employee_white.svg" alt="logo">
             </div>
             <p class="menu-animation-in">Gestion empleados</p>
         </article>
-
-        <article class="menu__item" (click)="routeToUsers()">
+   
+        <article class="menu__item" (click)="routeToUsers()"   [hidden]="!isAdmin">
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/manage_accounts_white_24dp.svg" alt="logo">
             </div>
             <p class="menu-animation-in">Gestion usuarios</p>
         </article>
  
-        <article class="menu__item menu-animation-in   " (click)="routeToRecord()">
+        <article class="menu__item menu-animation-in" (click)="routeToRecord()">
             <div class="menu-animation-in">
                 <img class="animate" src="../../../assets/imgs/icons/fact_check_white_24dp.svg" alt="logo">
             </div>

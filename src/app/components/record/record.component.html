@@ -5,7 +5,7 @@
     </div> 
 
     <article class="title-menu-home">
-        <h1 class="animate-fade-up">Ventas</h1>
+        <h1 class="animate-fade-up">Ventas en procesos</h1>
     </article>
 
    
@@ -19,18 +19,59 @@
 <!-- 
 <div class="alert alert-primary" role="alert">
     A simple primary alert—check it out!
-  </div>
-<table class="table table-borderless">
+  </div>-->
+  <br><br>
+<table class="table table-bordered animate">
     <tr>
-        <th>ID</th>
-        <th>NAME</th>
+        <th>CLIENTE</th>
+        <th>PRODUCTO</th>
+        <th>CANTIDAD</th>
+        <th>ESTADO</th>
+        <th>SUBTOTAL</th>
+        <th>TOTAL</th>
+        <th>FACTURA</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>JEREMIAS</td>
+    <tr *ngFor="let rec of records">
+        <td>{{rec.nombreCliente}}</td>
+        <td>{{rec.nombreProducto}}</td>
+        <td>{{rec.cantidad}}</td>
+        
+        <td>
+            <button  *ngIf="rec.estado!='p '" type="button" class="complete__button">COMPLETADA </button>
+            <button  *ngIf="rec.estado=='p '" type="button" class="process__button" (click)="completed(rec.id,'c')">PENDIENTE</button>
+        </td>
+        <td>{{rec.subtotal|currency}}</td>
+        <td>{{rec.total|currency}}</td>
+        <td> 
+            <button type="button" class="btn btn-primary" style="background-color: blue !important">Obtener </button>
+        </td>
     </tr>
+
+  
     
-</table> -->
+</table>  
 
-
+ <style>
+    .table{
+        margin: 10px !important;
+    }
+    .process__button{
+        background-color: grey;
+        border-radius: 5px;
+        color:aliceblue;
+        font-weight: 500;
+        border: none;
+        width: 120px;
+        font-size: 12px !important;
+    }
+    .complete__button{
+        background-color: rgb(39, 120, 39);
+        border-radius: 5px;
+        color:aliceblue;
+        font-size: 12px !important;
+        font-weight: 500;
+        border: none;
+        width: 120px;
+    }
+ </style>
 
