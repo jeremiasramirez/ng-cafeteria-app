@@ -43,7 +43,7 @@
         <td>{{rec.subtotal|currency}}</td>
         <td>{{rec.total|currency}}</td>
         <td> 
-            <button type="button" class="btn btn-primary" style="background-color: blue !important">Obtener </button>
+            <button [disabled]="rec.estado=='p '" type="button" class="btn btn-primary" style="background-color: blue !important" (click)="getFacturate(rec)">Obtenerla </button>
         </td>
     </tr>
 
@@ -51,27 +51,81 @@
     
 </table>  
 
- <style>
-    .table{
-        margin: 10px !important;
-    }
-    .process__button{
-        background-color: grey;
-        border-radius: 5px;
-        color:aliceblue;
-        font-weight: 500;
-        border: none;
-        width: 120px;
-        font-size: 12px !important;
-    }
-    .complete__button{
-        background-color: rgb(39, 120, 39);
-        border-radius: 5px;
-        color:aliceblue;
-        font-size: 12px !important;
-        font-weight: 500;
-        border: none;
-        width: 120px;
-    }
- </style>
+ 
+  <section class="facturation" *ngIf="existFacturationFinal" (click)="existFacturationFinal=false">
+   
+    <article class="data__facturation animate " >
+        <h1 class="facturation__title">Factura</h1>
+        <br>
 
+        <div class="column__facturation">
+            <p class="colum__facturation__title">COMPRADOR</p>
+            <p class="data__column__facturation">{{recordsFacture.nombreCliente}}</p>
+        </div>
+
+        <div class="column__facturation">
+            <p class="colum__facturation__title">PRODUCTO</p>
+            <p class="data__column__facturation">{{recordsFacture.nombreProducto}} </p>
+        </div>
+
+        <div class="column__facturation">
+            <p class="colum__facturation__title">CANTIDAD</p>
+            <p class="data__column__facturation">+{{recordsFacture.cantidad}}</p>
+        </div>
+
+        <div class="column__facturation">
+            <p class="colum__facturation__title">SUBTOTAL</p>
+            <p class="data__column__facturation">{{recordsFacture.subtotal | currency}}</p>
+        </div>
+
+        <div class="column__facturation">
+            <p class="colum__facturation__title">TOTAL</p>
+            <p class="data__column__facturation">{{recordsFacture.total | currency}}</p>
+        </div>
+
+        <div class="column__facturation">
+            <p class="colum__facturation__title">FECHA COMPRA</p>
+            <p class="data__column__facturation"> {{datenow}}</p>
+        </div>
+
+        <div class="column__facturation">
+            <p class="colum__facturation__title">Atendido por</p>
+            <p class="data__column__facturation"> {{currentUser}}</p>
+        </div>
+
+        <div class="column__facturation">
+            <button class="btn btn-danger btn-sm" style="width: 100% !important">Imprimir factura fisica</button>
+        </div>
+    </article>
+</section>
+
+ <style>
+ 
+    .data__facturation{
+        background-color: rgb(26, 20, 118);
+        height: 450px;
+        color:white !important;
+        width: 380px;
+        border-radius: 5px;
+        padding: 0 10px;
+        
+    }
+    .facturation__title{
+        color:white !important;
+    }
+    .column__facturation{
+        display: flex;
+        padding-top: 5px;
+        
+        justify-content: space-between;
+        align-items: center;
+        border-bottom:.3px solid white;
+    }
+    .colum__facturation__title{
+        font-weight: 500;
+        font-size: 18px;
+    }
+    .data__column__facturation{
+        font-size: 16px;
+    }
+ </style>  

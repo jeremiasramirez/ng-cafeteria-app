@@ -17,16 +17,18 @@ import { read, utils, writeFile } from 'xlsx';
   ]
 })
 export class RecordComponent implements OnInit {
-
+  public datenow=new Date().toString().substring(0,16)
   public records:any[]=[];
-
+  public recordsFacture:any={}
+  public existFacturationFinal:boolean=false;
+  public currentUser?:string;
   constructor(
     public facturation:FacturationService,
     public session:SesionService,
     public account:AccountService,
     public login:LoginService) { 
 
-
+      this.getAccountByToken()
     
     }
 
@@ -59,13 +61,24 @@ export class RecordComponent implements OnInit {
   }
 
 
+  public getFacturate(obj:any){
+    
+    this.recordsFacture=obj
+    console.log(this.recordsFacture);
+    
+    this.existFacturationFinal=true
+  }
+
+
+
   public getAccountByToken(){
         
     let token:any=localStorage.getItem("token")?.toString();
     
     this.account.getUserByToken(token)
     .subscribe((user)=>{
-       
+   
+       this.currentUser = user.response[0].nombre;
         if(user.response[0].tipoDeUsuario!="Admin"){
           this.session.routeTo('home');
         }

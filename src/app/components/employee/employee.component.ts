@@ -53,7 +53,10 @@ export class EmployeeComponent implements OnInit {
   public existMenuSelection:boolean=false;
 
 
-  constructor(public account:AccountService,public loginService:LoginService,public serviceEmployee:EmployeeService,
+  constructor(
+    public account:AccountService,
+    public loginService:LoginService,
+    public serviceEmployee:EmployeeService,
     public sessionServices:SesionService) {  }
 
 
